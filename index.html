@@ -10,14 +10,15 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Tienda Electrodomesticos</title>
+    <link rel="stylesheet" href="./src/style/styles.css" />
+    <title>Productos random</title>
   </head>
   <body>
     <nav class="nav row">
-      <a href="./index.html" class="nav-inicio col-4">inicio</a>
-      <a href="" class="nav-categorias col-4" id="categorias">categorias</a>
-      <a href="" class="nav-carrito col-4" id="carrito">🛒</a>
+      <a href="./index.html" class="nav-inicio col-3">inicio</a>
+      <a href="" class="nav-categorias col-3" id="categorias">categorias</a>
+      <a href="" class="nav-carrito col-3" id="carrito">🛒</a>
+      <button class="nav-btn col-3">Iniciar sesión</button>
       <input
         placeholder="Que estas buscando?"
         type="search"
@@ -25,7 +26,15 @@
       />
     </nav>
 
-    <div id="productos"></div>
+    <div id="productos" class="producto"></div>
+
+    <footer>
+      <ul>
+        <li>instagram</li>
+        <li>github</li>
+        <li>linkedin</li>
+      </ul>
+    </footer>
 
     <script src="/app.js"></script>
     <script src="./categorias.js"></script>

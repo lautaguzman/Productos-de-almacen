@@ -1,8 +1,13 @@
 const productos = document.querySelector("#productos")
 let stock = [
-  { id: 1, nombre: "smart tv", marca: "philips", precio: 53000, img: "./img/smart tv philips 43.jpg" },
-  { id: 2, nombre: "lavarropas", marca: "samsung", precio: 12000, img: "./img/lavarropas.jpg" },
-  { id: 3, nombre: "microondas", marca: "daewo", precio: 45000, img: "./img/microondas.jpg" },
+  { id: 1, nombre: "vino", marca: "malbec", precio: 3500, img: "./src/img/vino.jpg" },
+  { id: 2, nombre: "mochila", marca: "wagner", precio: 12000, img: "./src/img/mochila.jpg" },
+  { id: 3, nombre: "afeitadora", marca: "gama", precio: 18000, img: "./src/img/afeitadora.jpg" },
+  { id: 4, nombre: "matero", marca: "pampero", precio: 14000, img: "./src/img/matero.jpg" },
+  { id: 5, nombre: "linterna", marca: "stanley", precio: 4000, img: "./src/img/linterna.jpg" },
+  { id: 6, nombre: "conservadora", marca: "mor", precio: 9000, img: "./src/img/conservadora.jpg" },
+  { id: 7, nombre: "termo", marca: "luminox", precio: 17000, img: "./src/img/termo.jpg" },
+  { id: 8, nombre: "fogon", marca: "ñuke", precio: 53000, img: "./src/img/fogon.jpg" },
 ]
 
 
