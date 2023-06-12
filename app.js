@@ -10,18 +10,22 @@ let stock = [
   { id: 8, nombre: "fogon", marca: "ñuke", precio: 53000, img: "./src/img/fogon.jpg" },
 ]
 
-
 for (let s of stock) {
   let card = document.createElement("div");
-  card.className = "card"
+  card.className = "tarjeta";
   card.innerHTML = `
-  <img src="${s.img}"/>
-  <div class="card-body">
-    <h1>${s.nombre}</h1>
-    <p>${s.marca}</p>
-    <h5>$${s.precio}</h5>
+    <img src="${s.img}"/>
+    <div class="tarjeta-body">
+      <h1>${s.nombre}</h1>
+      <p>${s.marca}</p>
+      <h5>$${s.precio}</h5>
     </div>
-    <button>Añadir al carrito</button>
-  `
-  productos.appendChild(card)
+    <button class="agregarCarrito">Añadir al carrito</button>
+  `;
+  productos.appendChild(card);
+
+  const agregarCarrito = card.querySelector(".agregarCarrito");
+  agregarCarrito.addEventListener("click", () => {
+    alert("Producto agregado al carrito");
+  });
 }
