@@ -37,21 +37,26 @@ body {
 }
 
 /* PRODUCTOS/CARD */
-.producto {
+
+main {
+    background-color: #ffffff;
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(0deg, #099, #099 1px, #ffffff 1px, #ffffff);
+
+    margin: 5px;
+}
+
+.product {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 500px;
     margin: 10px;
-
-
 }
 
 .tarjeta {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     border-radius: 30px;
     background-color: rgb(0, 99, 92);
@@ -63,6 +68,7 @@ body {
 
 .tarjeta:hover {
     background-color: white;
+    border: solid 2px rgb(0, 99, 92);
     color: rgb(0, 99, 92);
 }
 
@@ -105,10 +111,29 @@ body {
     color: white;
 }
 
+/*FOOTER*/
+
 .footer {
-    border: 1px solid black;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(0, 99, 92);
+    margin: 4px;
+    height: 50px;
 }
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.footer a:hover {
+    color: black;
+}
+
 
 
 /* MEDIA QUERY PARA TABLET 
