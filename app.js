@@ -1,4 +1,5 @@
 const productos = document.querySelector("#productos")
+
 let stock = [
   { id: 1, nombre: "vino", marca: "malbec", precio: 3500, img: "./src/img/vino.jpg" },
   { id: 2, nombre: "mochila", marca: "wagner", precio: 12000, img: "./src/img/mochila.jpg" },
@@ -9,8 +10,9 @@ let stock = [
   { id: 7, nombre: "termo", marca: "luminox", precio: 17000, img: "./src/img/termo.jpg" },
   { id: 8, nombre: "fogon", marca: "ñuke", precio: 53000, img: "./src/img/fogon.jpg" },
 ]
+let carrito = []
 
-for (let s of stock) {
+stock.forEach((s) => {
   let card = document.createElement("div");
   card.className = "tarjeta";
   card.innerHTML = `
@@ -18,14 +20,29 @@ for (let s of stock) {
     <div class="tarjeta-body">
       <h1>${s.nombre}</h1>
       <p>${s.marca}</p>
-      <h5>$${s.precio}</h5>
+      <p>$${s.precio}</p>
     </div>
-    <button class="agregarCarrito">Añadir al carrito</button>
   `;
-  productos.appendChild(card);
+  productos.append(card);
 
-  const agregarCarrito = card.querySelector(".agregarCarrito");
-  agregarCarrito.addEventListener("click", () => {
-    alert("Producto agregado al carrito");
+
+  const añadirCarrito = document.createElement("button")
+  añadirCarrito.innerText = `Añadir al carrito`;
+
+  card.append(añadirCarrito);
+
+  añadirCarrito.addEventListener("click", () => {
+    carrito.push({
+      id: s.id,
+      nombre: s.nombre,
+      img: s.img,
+      precio: s.precio,
+    })
+    console.log(carrito)
   });
-}
+
+});
+
+
+
+
