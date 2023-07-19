@@ -16,13 +16,20 @@
   <body>
     <nav class="nav">
       <a href="/index.html" class="nav-inicio">inicio</a>
-      <input placeholder="buscar" type="search" id="buscador" />
-      <a href="" class="nav-contacto" id="contacto">contacto</a>
+      <a class="nav-contacto" id="contacto">contacto</a>
       <img src="./src/img/carrito.png" alt="imagen carrito" id="Vercarrito" />
     </nav>
 
+    <section class="buscador">
+      <p>¿que estas buscando?</p>
+      <input placeholder="Buscar..." name="text" type="text" id="buscador" />
+    </section>
+
+    <div id="modal-contacto" class="form-container"></div>
+
+    <div id="modal-carrito" class="modalContainer"></div>
+
     <div id="productos" class="product"></div>
-    <div id="modal-container" class="modalContainer"></div>
 
     <footer class="footer">
       <a href="https://es-la.facebook.com/">facebook</a>
@@ -31,8 +38,9 @@
     </footer>
 
     <script src="./app.js"></script>
-    <script src="./page/carrito.js"></script>
+    <script src="./page/buscador.js"></script>
     <script src="./page/contacto.js"></script>
+    <script src="./page/carrito.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -40,3 +48,5 @@
     ></script>
   </body>
 </html>
+
+

@@ -54,5 +54,33 @@
         "marca": "ñuke",
         "precio": 53000,
         "img": "./src/img/fogon.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Smart",
+        "marca": "noblex",
+        "precio": 83000,
+        "img": "./src/img/smart tv.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "tablet",
+        "marca": "lenovo",
+        "precio": 69000,
+        "img": "./src/img/tablet.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "celular",
+        "marca": "samsung s23",
+        "precio": 400000,
+        "img": "./src/img/S23.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "lijadora",
+        "marca": "gamma",
+        "precio": 37000,
+        "img": "./src/img/lijadora.jpg"
     }
 ]

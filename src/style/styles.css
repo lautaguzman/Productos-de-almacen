@@ -7,7 +7,7 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 
@@ -22,16 +22,7 @@ body {
     align-items: center;
     background-color: rgb(0, 99, 92);
     height: 130px;
-}
-
-.nav input {
-    background-color: white;
-    text-transform: uppercase;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
-    width: 20%;
-    height: 40px;
-    border-radius: 10px;
+    width: 99%;
 }
 
 .nav a {
@@ -42,10 +33,59 @@ body {
     text-decoration: none;
 }
 
+.nav-contacto {
+    cursor: pointer;
+}
+
 .nav img {
+    cursor: pointer;
     border-radius: 10px;
     width: 70px;
     height: 50px;
+}
+
+/*formulario contacto */
+
+
+
+/*BUSCADOR*/
+.buscador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px rgb(0, 99, 92);
+    border-radius: 15px;
+    margin: 10px;
+    height: 90px;
+    width: 80%;
+}
+
+.buscador p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+
+.buscador input {
+    text-align: center;
+    width: 120px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 1px gray;
+    font-size: 18px;
+    transition: width 0.3s;
+    font-family: Consolas, monaco, monospace;
+}
+
+.buscador input:focus {
+    outline: 1px solid rgb(0, 99, 92);
+    box-shadow: none;
+    width: 230px;
+}
+
+.buscador input::placeholder {
+    color: rgb(0, 99, 92);
 }
 
 /*MODAL*/
@@ -169,6 +209,11 @@ body {
     font-size: x-large;
 }
 
+.modal-main span {
+    background-color: white;
+    cursor: pointer;
+}
+
 .modal-footer {
     display: flex;
     flex-direction: row;
@@ -176,6 +221,9 @@ body {
     background-color: white;
     margin: 20px;
 }
+
+
+
 
 /* PRODUCTOS/CARD */
 
@@ -206,6 +254,7 @@ body {
 }
 
 .tarjeta img {
+    border-radius: 20px;
     margin-top: 10px;
     width: 200px;
     height: 200px;
@@ -255,6 +304,7 @@ body {
     background-color: rgb(0, 99, 92);
     margin: 4px;
     height: 50px;
+    width: 99%;
 }
 
 .footer a {
