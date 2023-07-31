@@ -1,7 +1,7 @@
 const productos = document.querySelector("#productos");
 
 const contacto = document.querySelector("#contacto");
-const modalContacto = document.querySelector("#modal-contacto")
+const modalForm = document.querySelector("#modalForm")
 
 const verCarrito = document.querySelector("#Vercarrito");
 const modalContainer = document.querySelector("#modal-carrito");
