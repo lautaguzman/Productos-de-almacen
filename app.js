@@ -31,12 +31,21 @@ fetch('./data.json')
       card.append(añadirCarrito);
 
       añadirCarrito.addEventListener("click", () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto Agregado',
+          showConfirmButton: false,
+          timer: 1000
+        });
+
         carrito.push({
           id: producto.id,
           nombre: producto.nombre,
           img: producto.img,
           precio: producto.precio,
-        })
+          cantidad: producto.cantidad,
+        });
       });
 
     });

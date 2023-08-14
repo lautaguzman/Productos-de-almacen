@@ -1,10 +1,10 @@
-function mostrarModalForm() {
+function mostrarForm() {
     modalForm.innerHTML = "";
     modalForm.style.display = "flex";
 
     const buttonForm = document.createElement("button");
     buttonForm.className = "buttonForm";
-    buttonForm.innerHTML = `❌`;
+    buttonForm.innerHTML = `X`;
     buttonForm.addEventListener("click", () => {
         modalForm.style.display = "none";
     });
@@ -45,6 +45,6 @@ function validarFormulario(event) {
     modalForm.style.display = "none";
 }
 
-contacto.addEventListener("click", mostrarModalForm);
+contacto.addEventListener("click", mostrarForm);
 
 
