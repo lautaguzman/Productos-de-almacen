@@ -24,7 +24,7 @@ const tuCarrito = () => {
         <div class="cardHeader">
         <img src="${s.img}">
         <h2>${s.nombre}</h2>
-        <span>$${s.precio}</span>
+        <span>$${s.precio * s.cantidad}</span>
         </div>
         <div class="cardButton"> 
         <span id="resta">-</span>
@@ -53,7 +53,7 @@ const tuCarrito = () => {
     });
 
 
-    const total = carrito.reduce((acc, el) => acc + el.precio, 0)
+    const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
 
     const cardFooter = document.createElement("div")
     cardFooter.className = "cardFooter"

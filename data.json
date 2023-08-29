@@ -81,10 +81,10 @@
     },
     {
         "id": 11,
-        "nombre": "celular",
-        "marca": "samsung s23",
-        "precio": 400000,
-        "img": "./src/img/S23.jpg",
+        "nombre": "caloventor",
+        "marca": "liliana",
+        "precio": 7800,
+        "img": "./src/img/caloventor.jpg",
         "cantidad": 1
     },
     {
@@ -93,6 +93,38 @@
         "marca": "gamma",
         "precio": 37000,
         "img": "./src/img/lijadora.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 13,
+        "nombre": "pava electrica",
+        "marca": "yelmo",
+        "precio": 23600,
+        "img": "./src/img/pava electrica.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 14,
+        "nombre": "smart watch",
+        "marca": "colmi",
+        "precio": 71500,
+        "img": "./src/img/smart watch.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 15,
+        "nombre": "impresora",
+        "marca": "hp",
+        "precio": 56000,
+        "img": "./src/img/impresora.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 16,
+        "nombre": "auriculares",
+        "marca": "philips",
+        "precio": 37200,
+        "img": "./src/img/auriculares.jpg",
         "cantidad": 1
     }
 ]

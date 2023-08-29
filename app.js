@@ -39,13 +39,25 @@ fetch('./data.json')
           timer: 1000
         });
 
-        carrito.push({
-          id: producto.id,
-          nombre: producto.nombre,
-          img: producto.img,
-          precio: producto.precio,
-          cantidad: producto.cantidad,
-        });
+
+        const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
+
+        if (repeatProduct) {
+          carrito.map((prod) => {
+            if (prod.id === producto.id) {
+              prod.cantidad++;
+            }
+          })
+        } else {
+
+          carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            img: producto.img,
+            precio: producto.precio,
+            cantidad: producto.cantidad,
+          });
+        };
       });
 
     });
