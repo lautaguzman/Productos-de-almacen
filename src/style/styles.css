@@ -58,7 +58,7 @@ body {
 
 .btn-carrito {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     border: solid 1px black;
     border-radius: 50%;
@@ -68,14 +68,16 @@ body {
 
 .btn-carrito span {
     display: none;
-   align-items: center;
     border-radius: 50%;
-    width: 25px;
-    height:30px ;
+    width: 30px;
+    height: 30px;
     background-color: red;
-    color: #333333;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 50px;
 }
 
 
