@@ -1,3 +1,4 @@
+
 const tuCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
@@ -70,8 +71,22 @@ const quitarProducto = () => {
     carrito = carrito.filter((carritoId) => {
         return carritoId !== buscarId
     });
+    mostrarCantidadEnCarrito()
     tuCarrito();
 };
 
+
+function mostrarCantidadEnCarrito() {
+    const cantidadCarrito = document.querySelector("#Cantidadcarrito");
+    cantidadCarrito.style.display = "block"
+
+    const cantidadTotal = carrito.length;
+
+    if (cantidadTotal > 0) {
+        cantidadCarrito.textContent = cantidadTotal;
+    } else {
+        cantidadCarrito.style.display = 'none';
+    }
+}
 
 

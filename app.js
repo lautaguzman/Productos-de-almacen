@@ -1,11 +1,15 @@
-const productos = document.querySelector("#productos");
-
+// CAPTURAMOS ID PARA AGREGAR FORMULARIO
 const contacto = document.querySelector("#contacto");
 const modalForm = document.querySelector("#modalForm")
 
+// CAPTURAMOS ID PARA AGREGAR CARRITO
 const verCarrito = document.querySelector("#Vercarrito");
 const modalContainer = document.querySelector("#modal-carrito");
 
+// CAPTURAMOS ID PARA AGREGAR LOS PRODUCTOS
+const productos = document.querySelector("#productos");
+
+// ARRAY VACIO DE CARRITO
 let carrito = []
 
 fetch('./data.json')
@@ -58,6 +62,7 @@ fetch('./data.json')
             cantidad: producto.cantidad,
           });
         };
+        mostrarCantidadEnCarrito()
       });
 
     });

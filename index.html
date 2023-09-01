@@ -28,13 +28,14 @@
         <a href="/index.html" class="nav-inicio">inicio</a>
       </div>
       <div class="nav-items">
-        <button id="contacto">
+        <button class="btn-contacto" id="contacto">
           <i
             class="fa-regular fa-envelope fa-beat fa-xl"
             style="color: #00635c"
           ></i>
         </button>
-        <button id="Vercarrito">
+        <button class="btn-carrito" id="Vercarrito">
+          <span id="Cantidadcarrito"></span>
           <i
             class="fa-solid fa-cart-shopping fa-beat fa-lg"
             style="color: #00635c"
@@ -45,11 +46,13 @@
 
     <!-- MODAL FORMULARIO -->
     <div id="modalForm" class="formContainer"></div>
+
     <!-- BUSCADOR -->
     <section class="buscador">
       <p>¿que estas buscando?</p>
       <input placeholder="Buscar..." name="text" type="text" id="buscador" />
     </section>
+
     <!-- MODAL CARRITO -->
     <div id="modal-carrito" class="modalContainer"></div>
 
