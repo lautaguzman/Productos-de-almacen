@@ -126,5 +126,37 @@
         "precio": 37200,
         "img": "./src/img/auriculares.jpg",
         "cantidad": 1
+    },
+    {
+        "id": 17,
+        "nombre": "silla de oficina",
+        "marca": "traful",
+        "precio": 37000,
+        "img": "./src/img/silla de oficina.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 18,
+        "nombre": "cafetera",
+        "marca": "atma",
+        "precio": 13000,
+        "img": "./src/img/cafetera.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 19,
+        "nombre": "mate",
+        "marca": "lusqtoff",
+        "precio": 13000,
+        "img": "./src/img/mate.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 20,
+        "nombre": "exprimidor",
+        "marca": "Black & Decker",
+        "precio": 16000,
+        "img": "./src/img/exprimidor.jpg",
+        "cantidad": 1
     }
 ]

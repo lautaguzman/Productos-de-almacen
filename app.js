@@ -43,7 +43,7 @@ fetch('./data.json')
           timer: 1000
         });
 
-
+        // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
 
         if (repeatProduct) {

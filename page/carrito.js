@@ -1,5 +1,5 @@
-
-const tuCarrito = () => {
+// FUNCION PARA RENDERIZAR CARRITO
+const miCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
 
@@ -22,6 +22,7 @@ const tuCarrito = () => {
         let modalCard = document.createElement("div");
         modalCard.className = "modalCard cardShadow";
         modalCard.innerHTML = `
+        <button class="btn-eliminar" id="btnEliminar"><i class="fa-sharp fa-solid fa-trash" style="color: #fa0000;"></i></button>
         <div class="cardHeader">
         <img src="${s.img}">
         <h2>${s.nombre}</h2>
@@ -45,15 +46,12 @@ const tuCarrito = () => {
             tuCarrito();
         });
 
+        let eliminar = modalCard.querySelector("#btnEliminar")
+        eliminar.addEventListener("click", () => quitarProducto(s.id))
 
-        let eliminar = document.createElement("button");
-        eliminar.className = "btnEliminar";
-        eliminar.innerHTML = "delete";
-        eliminar.addEventListener("click", quitarProducto);
-        modalCard.append(eliminar);
     });
 
-
+    // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
 
     const cardFooter = document.createElement("div")
@@ -62,20 +60,20 @@ const tuCarrito = () => {
     modalContainer.append(cardFooter);
 };
 
-verCarrito.addEventListener("click", tuCarrito);
+verCarrito.addEventListener("click", miCarrito);
 
-
-const quitarProducto = () => {
-    const buscarId = carrito.find((articulo) => articulo.id)
+// FUNCION PARA ELIMINAR UN PRODUCTO DEL CARRITO
+const quitarProducto = (id) => {
+    const buscarId = carrito.find((articulo) => articulo.id === id)
 
     carrito = carrito.filter((carritoId) => {
         return carritoId !== buscarId
     });
     mostrarCantidadEnCarrito()
-    tuCarrito();
+    miCarrito();
 };
 
-
+// FUNCION PARA MOSTRAR LA CANTIDAD DE PRODUCTOS QUE HAY EN EL CARRITO
 function mostrarCantidadEnCarrito() {
     const cantidadCarrito = document.querySelector("#Cantidadcarrito");
     cantidadCarrito.style.display = "block"

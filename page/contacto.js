@@ -2,49 +2,66 @@ function mostrarForm() {
     modalForm.innerHTML = "";
     modalForm.style.display = "flex";
 
-    const buttonForm = document.createElement("button");
-    buttonForm.className = "buttonForm";
-    buttonForm.innerHTML = `X`;
-    buttonForm.addEventListener("click", () => {
+
+    const formHeader = document.createElement("header")
+    formHeader.className = "form-header"
+    formHeader.innerHTML = `<h4>dejanos tu mensaje</h4>`
+    modalForm.append(formHeader)
+
+    const formClose = document.createElement("span");
+    formClose.innerHTML = `<i class="fa-solid fa-xmark" style="color: #ffffff;"></i>`;
+    formClose.addEventListener("click", () => {
         modalForm.style.display = "none";
     });
-    modalForm.append(buttonForm);
+    formHeader.append(formClose);
 
     const formulario = document.createElement("form");
     formulario.className = "formulario";
     formulario.innerHTML = `
-    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" required />
-    <input type="email" name="email" id="email" placeholder="Ingresa tu email" required />
-    <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje" required></textarea>`;
+    <div class="form-input">   
+    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre"/>
+    <input type="email" name="email" id="email" placeholder="Ingresa tu email"  />
+    </div>
+    <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje"></textarea>
+    <div class="form-btn">
+    <button type="reset">vaciar formulario</button>
+    <button type="submit">enviar</button>
+    </div>`;
     modalForm.append(formulario);
 
-    const buttonSubmit = document.createElement("button");
-    buttonSubmit.innerHTML = `submit`;
-    formulario.append(buttonSubmit);
-
-    formulario.addEventListener("submit", validarFormulario);
+    formulario.addEventListener("submit", validarForm)
 }
 
-function validarFormulario(event) {
+contacto.addEventListener("click", mostrarForm)
+
+
+function validarForm(event) {
     event.preventDefault();
 
-    const nombre = document.getElementById("nombre").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
+    const name = document.querySelector("#nombre").value
+    const email = document.querySelector("#email").value
+    const msj = document.querySelector("#mensaje").value
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nombre === "" || email === "" || mensaje === "") {
-        alert("Por favor, completa todos los campos.");
+
+    if (name === "" || email === "" || msj === "") {
+        alert(`completa los campos`)
         return;
-    }
+    };
 
     if (!emailRegex.test(email)) {
         alert("Por favor, ingresa un correo electrónico válido.");
         return;
-    }
+    };
+
+    // alert(`tu nombre es ${name}`)
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Mensaje Enviado',
+        showConfirmButton: false,
+        timer: 1500
+    });
     modalForm.style.display = "none";
-}
-
-contacto.addEventListener("click", mostrarForm);
-
-
+};
