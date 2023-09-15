@@ -10,7 +10,7 @@ const modalContainer = document.querySelector("#modal-carrito");
 const productos = document.querySelector("#productos");
 
 // ARRAY VACIO DE CARRITO
-let carrito = []
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []
 
 fetch('./data.json')
   .then(response => response.json())
@@ -63,6 +63,7 @@ fetch('./data.json')
           });
         };
         mostrarCantidadEnCarrito()
+        localSave()
       });
 
     });
@@ -71,6 +72,14 @@ fetch('./data.json')
   .catch(error => {
     alert('Error al obtener el archivo JSON', error);
   });
+
+
+
+const localSave = () => {
+  localStorage.setItem("carrito", JSON.stringify(carrito))
+
+}
+
 
 
 

@@ -3,52 +3,70 @@ const miCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
 
-    const buttonClose = document.createElement("button")
-    buttonClose.className = "btnCerrar btn btn-danger";
-    buttonClose.innerHTML = `x`;
+    // CREAMOS EL HEADER DE  CARRITO
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "carrito-header"
+    modalHeader.innerHTML = ` <h4>tu carrito</h4>
+        `;
+    modalContainer.append(modalHeader);
+
+    const buttonClose = document.createElement("span")
+    buttonClose.innerHTML = `<i class="fa-solid fa-xmark" style="color: #ffffff;"></i>`;
     buttonClose.addEventListener("click", () => {
         modalContainer.style.display = "none";
     });
-    modalContainer.append(buttonClose)
-
-    const modalHeader = document.createElement("h1");
-    modalHeader.innerHTML = `
-        tu carrito
-    `;
-    modalContainer.append(modalHeader);
-
-
+    modalHeader.append(buttonClose)
+    // CREAMOS CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
     carrito.forEach((s) => {
         let modalCard = document.createElement("div");
-        modalCard.className = "modalCard cardShadow";
-        modalCard.innerHTML = `
-        <button class="btn-eliminar" id="btnEliminar"><i class="fa-sharp fa-solid fa-trash" style="color: #fa0000;"></i></button>
-        <div class="cardHeader">
+        modalCard.className = "modalCard";
+
+        let cardHeader = document.createElement("div")
+        cardHeader.className = "card-header"
+        cardHeader.innerHTML = ` 
         <img src="${s.img}">
         <h2>${s.nombre}</h2>
-        <span>$${s.precio * s.cantidad}</span>
-        </div>
-        <div class="cardButton"> 
-        <span id="resta">-</span>
-        <h4>${s.cantidad}</h4>
-        <span id="suma">+</span>
-        </div>
-       
-`;
+        <span>$${s.precio * s.cantidad}</span>`
+        modalCard.append(cardHeader)
 
-        modalContainer.append(modalCard);
+        // CREAMOS BOTONERA PARA MANEJAR CANTIDADES
+        let cardButton = document.createElement("div")
+        cardButton.className = "cardButton"
+        modalCard.append(cardButton)
 
-        let resta = document.querySelector("#resta")
+        let resta = document.createElement("span")
+        resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #000000;"></i>`
         resta.addEventListener("click", () => {
             if (s.cantidad !== 1) {
                 s.cantidad--
             };
-            tuCarrito();
+            localSave()
+            miCarrito();
         });
 
-        let eliminar = modalCard.querySelector("#btnEliminar")
-        eliminar.addEventListener("click", () => quitarProducto(s.id))
+        cardButton.append(resta)
 
+        let cardCantidad = document.createElement("h4")
+        cardCantidad.innerHTML = `${s.cantidad}`
+        cardButton.append(cardCantidad)
+
+        let suma = document.createElement("span")
+        suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #000000;"></i>`
+        suma.addEventListener("click", () => {
+            s.cantidad++;
+            localSave()
+            miCarrito()
+        })
+        cardButton.append(suma)
+
+        // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
+        let btnEliminar = document.createElement("button")
+        btnEliminar.className = "btn-eliminar"
+        btnEliminar.innerHTML = `<span>eliminar</span><i class="fa-sharp fa-solid fa-trash" style="color: #000000"></i>`;
+        btnEliminar.addEventListener("click", () => quitarProducto(s.id))
+        modalCard.append(btnEliminar)
+
+        modalContainer.append(modalCard);
     });
 
     // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
@@ -70,6 +88,7 @@ const quitarProducto = (id) => {
         return carritoId !== buscarId
     });
     mostrarCantidadEnCarrito()
+    localSave();
     miCarrito();
 };
 
@@ -80,11 +99,13 @@ function mostrarCantidadEnCarrito() {
 
     const cantidadTotal = carrito.length;
 
+    localStorage.setItem("cantidadTotal", JSON.stringify(cantidadTotal))
+
     if (cantidadTotal > 0) {
-        cantidadCarrito.textContent = cantidadTotal;
+        cantidadCarrito.textContent = JSON.parse(localStorage.getItem("cantidadTotal"));
     } else {
         cantidadCarrito.style.display = 'none';
     }
-}
+};
 
-
+mostrarCantidadEnCarrito()
