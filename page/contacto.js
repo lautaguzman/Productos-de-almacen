@@ -1,4 +1,6 @@
 function mostrarForm() {
+    searchContainer.style.display = "none";
+
     modalForm.innerHTML = "";
     modalForm.style.display = "flex";
 

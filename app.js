@@ -1,6 +1,12 @@
+const inicio = document.querySelector("#inicio")
+
 // CAPTURAMOS ID PARA AGREGAR FORMULARIO
 const contacto = document.querySelector("#contacto");
 const modalForm = document.querySelector("#modalForm")
+
+// CAPTURAMOS ID PARA AGREGAR INPUT DE BUSQUEDA
+const lupa = document.querySelector("#lupa")
+const searchContainer = document.querySelector("#searchContainer")
 
 // CAPTURAMOS ID PARA AGREGAR CARRITO
 const verCarrito = document.querySelector("#Vercarrito");
@@ -11,6 +17,11 @@ const productos = document.querySelector("#productos");
 
 // ARRAY VACIO DE CARRITO
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+
+inicio.addEventListener("click", () => {
+  location.reload();
+})
+
 
 fetch('./data.json')
   .then(response => response.json())
@@ -79,10 +90,6 @@ const localSave = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito))
 
 }
-
-
-
-
 
 
 

@@ -113,10 +113,10 @@
     },
     {
         "id": 15,
-        "nombre": "pan hamburguesa",
-        "marca": "bimbo",
-        "precio": 575,
-        "img": "./src/img/pan hamburguesa artesano.jpg",
+        "nombre": "queso crema",
+        "marca": "casancrem",
+        "precio": 1730,
+        "img": "./src/img/queso crema.jpg",
         "cantidad": 1
     },
     {
@@ -145,10 +145,10 @@
     },
     {
         "id": 19,
-        "nombre": "cartucho afeitar",
-        "marca": "gillette",
-        "precio": 1739,
-        "img": "./src/img/cartuchos afeitar.jpg",
+        "nombre": "yerba",
+        "marca": "la tranquera",
+        "precio": 850,
+        "img": "./src/img/yerba la tranquera.jpg",
         "cantidad": 1
     },
     {

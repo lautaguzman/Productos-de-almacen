@@ -25,21 +25,30 @@
     <!-- BARRA DE NAVEGACION -->
     <nav class="nav">
       <div class="nav-inicio">
-        <a href="/index.html" class="nav-inicio">inicio</a>
+        <a id="inicio" class="nav-inicio">inicio</a>
       </div>
       <div class="nav-items">
-        <button class="btn-contacto" id="contacto">
+        <button id="contacto">
           <i
             alt="mensaje"
-            class="fa-regular fa-envelope fa-beat fa-xl"
+            class="fa-regular fa-envelope fa-lg"
             style="color: #00635c"
           ></i>
         </button>
+
+        <button id="lupa">
+          <i
+            alt="lupa"
+            class="fa-solid fa-magnifying-glass fa-lg"
+            style="color: #00635c"
+          ></i>
+        </button>
+
         <button class="btn-carrito" id="Vercarrito">
           <span id="Cantidadcarrito"></span>
           <i
             alt="carrito"
-            class="fa-solid fa-cart-shopping fa-beat fa-lg"
+            class="fa-solid fa-cart-shopping fa-lg"
             style="color: #00635c"
           ></i>
         </button>
@@ -50,27 +59,26 @@
     <div id="modalForm" class="formContainer"></div>
 
     <!-- BUSCADOR -->
-    <section class="buscador">
-      <p>¿que estas buscando?</p>
-      <div class="campo-busqueda">
-        <input placeholder="Buscar..." name="text" type="text" id="buscador" />
-        <i
-          alt="lupa"
-          class="fa-solid fa-magnifying-glass fa-beat-fade"
-          style="color: #00635c"
-        ></i>
-        <div id="resultadoBusqueda"></div>
+    <div class="searchContainer" id="searchContainer">
+      <p>¿qué estás buscando?</p>
+      <div class="searchBox">
+        <input id="inputSearch" type="text" placeholder="buscar productos..." />
+        <button id="closeSearch">
+          <i class="fa-solid fa-x fa-xs" style="color: #fcfcfc"></i>
+        </button>
       </div>
-    </section>
+    </div>
 
     <!-- MODAL CARRITO -->
     <div id="modal-carrito" class="modalContainer"></div>
 
     <!-- PRODUCTOS -->
-    <div id="productos" class="product"></div>
+    <div id="productos" class="product">
+      <div id="resultadosBusqueda"></div>
+    </div>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <p>¡seguime en mis redes!</p>
       <div class="footer-redes">
         <div class="footer-facebook">
