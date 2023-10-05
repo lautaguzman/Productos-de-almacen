@@ -1,12 +1,13 @@
-const inicio = document.querySelector("#inicio")
+// CAPTURAMOS ID PARA RECARGAR PAGINA DE INICIO
+const inicio = document.querySelector("#inicio");
 
 // CAPTURAMOS ID PARA AGREGAR FORMULARIO
 const contacto = document.querySelector("#contacto");
-const modalForm = document.querySelector("#modalForm")
+const modalForm = document.querySelector("#modalForm");
 
 // CAPTURAMOS ID PARA AGREGAR INPUT DE BUSQUEDA
-const lupa = document.querySelector("#lupa")
-const searchContainer = document.querySelector("#searchContainer")
+const lupa = document.querySelector("#lupa");
+const searchContainer = document.querySelector("#searchContainer");
 
 // CAPTURAMOS ID PARA AGREGAR CARRITO
 const verCarrito = document.querySelector("#Vercarrito");
@@ -16,11 +17,12 @@ const modalContainer = document.querySelector("#modal-carrito");
 const productos = document.querySelector("#productos");
 
 // ARRAY VACIO DE CARRITO
-let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// RECARGAR PAGINA DESDE INICIO
 inicio.addEventListener("click", () => {
   location.reload();
-})
+});
 
 
 fetch('./data.json')
@@ -40,7 +42,7 @@ fetch('./data.json')
       productos.append(card);
 
 
-      const añadirCarrito = document.createElement("button")
+      const añadirCarrito = document.createElement("button");
       añadirCarrito.innerText = `Añadir al carrito`;
 
       card.append(añadirCarrito);
@@ -62,7 +64,7 @@ fetch('./data.json')
             if (prod.id === producto.id) {
               prod.cantidad++;
             }
-          })
+          });
         } else {
 
           carrito.push({
@@ -84,12 +86,9 @@ fetch('./data.json')
     alert('Error al obtener el archivo JSON', error);
   });
 
-
-
 const localSave = () => {
-  localStorage.setItem("carrito", JSON.stringify(carrito))
-
-}
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+};
 
 
 
