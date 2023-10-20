@@ -1,6 +1,4 @@
 function mostrarForm() {
-    searchContainer.style.display = "none";
-
     modalForm.innerHTML = "";
     modalForm.style.display = "flex";
 
@@ -26,7 +24,7 @@ function mostrarForm() {
     </div>
     <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje"></textarea>
     <div class="form-btn">
-    <button type="reset">vaciar formulario</button>
+    <button type="reset">limpiar</button>
     <button type="submit">enviar</button>
     </div>`;
     modalForm.append(formulario);
@@ -47,12 +45,24 @@ function validarForm(event) {
 
 
     if (name === "" || email === "" || msj === "") {
-        alert(`completa los campos`)
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Completa los campos',
+            showConfirmButton: false,
+            timer: 1500
+        });
         return;
     };
 
     if (!emailRegex.test(email)) {
-        alert("Por favor, ingresa un correo electrónico válido.");
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Correo invalido',
+            showConfirmButton: false,
+            timer: 1500
+        });
         return;
     };
 

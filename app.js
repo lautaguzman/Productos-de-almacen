@@ -6,7 +6,6 @@ const contacto = document.querySelector("#contacto");
 const modalForm = document.querySelector("#modalForm");
 
 // CAPTURAMOS ID PARA AGREGAR INPUT DE BUSQUEDA
-const lupa = document.querySelector("#lupa");
 const searchContainer = document.querySelector("#searchContainer");
 
 // CAPTURAMOS ID PARA AGREGAR CARRITO
@@ -37,7 +36,6 @@ fetch('./data.json')
           <h1>${producto.nombre}</h1>
           <p>${producto.marca}</p>
           <p>$${producto.precio}</p>
-        </div>
       `;
       productos.append(card);
 
@@ -59,22 +57,10 @@ fetch('./data.json')
         // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
 
-        if (repeatProduct) {
-          carrito.map((prod) => {
-            if (prod.id === producto.id) {
-              prod.cantidad++;
-            }
-          });
-        } else {
+        repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
+          :
+          carrito.push({ id: producto.id, nombre: producto.nombre, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
 
-          carrito.push({
-            id: producto.id,
-            nombre: producto.nombre,
-            img: producto.img,
-            precio: producto.precio,
-            cantidad: producto.cantidad,
-          });
-        };
         mostrarCantidadEnCarrito()
         localSave()
       });
@@ -92,5 +78,23 @@ const localSave = () => {
 
 
 
+// FUNCIONES DEL FOOTER
+
+const gitHub = document.querySelector("#github")
+function abrirGitHub() {
+  window.open('https://github.com/lautaguzman', '_blank');
+}
+gitHub.addEventListener("click", abrirGitHub)
 
 
+const instagram = document.querySelector("#instagram")
+function abrirInstagram() {
+  window.open('https://instagram.com/lautaguzman21?igshid=NzZlODBkYWE4Ng==', '_blank');
+}
+instagram.addEventListener("click", abrirInstagram)
+
+const linkedin = document.querySelector("#linkedin")
+function abrirLinkedin() {
+  window.open('https://www.linkedin.com/in/lautaro-guzman-8841431b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank');
+}
+linkedin.addEventListener("click", abrirLinkedin)

@@ -4,13 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- BOOTSTRAP -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
     <!-- FONT AWESOME -->
     <script
       src="https://kit.fontawesome.com/5829e3c354.js"
@@ -25,7 +18,7 @@
     <!-- BARRA DE NAVEGACION -->
     <nav class="nav">
       <div class="nav-inicio">
-        <a id="inicio" class="nav-inicio">inicio</a>
+        <a id="inicio">inicio</a>
       </div>
       <div class="nav-items">
         <button id="contacto">
@@ -35,15 +28,6 @@
             style="color: #00635c"
           ></i>
         </button>
-
-        <button id="lupa">
-          <i
-            alt="lupa"
-            class="fa-solid fa-magnifying-glass fa-lg"
-            style="color: #00635c"
-          ></i>
-        </button>
-
         <button class="btn-carrito" id="Vercarrito">
           <span id="Cantidadcarrito"></span>
           <i
@@ -56,52 +40,47 @@
     </nav>
 
     <!-- MODAL FORMULARIO -->
-    <div id="modalForm" class="formContainer"></div>
+    <div id="modalForm" class="form-container"></div>
 
     <!-- BUSCADOR -->
-    <div class="searchContainer" id="searchContainer">
+    <div class="search-container" id="searchContainer">
       <p>¿qué estás buscando?</p>
-      <div class="searchBox">
-        <input id="inputSearch" type="text" placeholder="buscar productos..." />
-        <button id="closeSearch">
-          <i class="fa-solid fa-x fa-xs" style="color: #fcfcfc"></i>
-        </button>
-      </div>
+      <input id="inputSearch" type="text" placeholder="Buscar Productos..." />
     </div>
 
     <!-- MODAL CARRITO -->
     <div id="modal-carrito" class="modalContainer"></div>
 
     <!-- PRODUCTOS -->
-    <div id="productos" class="product"></div>
+    <div id="productos" class="productos-container"></div>
 
     <!-- FOOTER -->
     <footer class="footer" id="footer">
       <p>¡seguime en mis redes!</p>
       <div class="footer-redes">
-        <div class="footer-facebook">
+        <div class="footer-linkedin">
           <i
-            alt="facebook"
-            class="fa-brands fa-facebook fa-bounce"
+            id="linkedin"
+            alt="linkedin"
+            class="fa-brands fa-linkedin fa-bounce"
             style="color: #ffffff"
           ></i>
-          <a href="https://es-la.facebook.com/">facebook</a>
         </div>
         <div class="footer-insta">
           <i
+            id="instagram"
             alt="instagram"
             class="fa-brands fa-instagram fa-bounce"
             style="color: #ffffff"
           ></i>
-          <a href="https://www.instagram.com/">instagram</a>
         </div>
         <div class="footer-gh">
           <i
+            id="github"
             alt="github"
             class="fa-brands fa-github fa-bounce"
             style="color: #ffffff"
           ></i>
-          <a href="https://github.com/lautaguzman">github</a>
         </div>
       </div>
     </footer>
