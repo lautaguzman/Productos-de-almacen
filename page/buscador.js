@@ -20,11 +20,11 @@ const buscarProd = () => {
                     let card = document.createElement("div");
                     card.className = "tarjeta";
                     card.innerHTML = `
-                <img src="${producto.img}"/>
-                <div class="tarjeta-body">
-                <h1>${producto.nombre}</h1>
-                <p>${producto.marca}</p>
-                <p>$${producto.precio}</p>`;
+                    <img src="${producto.img}"/>
+                    <div class="tarjeta-info">
+                      <h2>${producto.nombre}</h2>
+                      <p>${producto.marca}</p>
+                      <span>$${producto.precio}</span>`;
 
                     productos.append(card);
 
