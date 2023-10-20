@@ -155,6 +155,18 @@
         height: 25px;
         text-transform: uppercase;
     }
+
+    .search-container {
+        display: none;
+    }
+
+    .productos-container {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
 }
 
 
