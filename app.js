@@ -32,10 +32,10 @@ fetch('./data.json')
       card.className = "tarjeta";
       card.innerHTML = `
         <img src="${producto.img}"/>
-        <div class="tarjeta-body">
-          <h1>${producto.nombre}</h1>
+        <div class="tarjeta-info">
+          <h2>${producto.nombre}</h2>
           <p>${producto.marca}</p>
-          <p>$${producto.precio}</p>
+          <span>$${producto.precio}</span>
       `;
       productos.append(card);
 

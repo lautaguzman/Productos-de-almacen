@@ -156,18 +156,119 @@
         text-transform: uppercase;
     }
 
+    /* CARRITO */
+    /* .carrito-container {
+        background-color: red;
+        width: 90%;
+        position: fixed;
+    } */
+
+    /* BUSCADOR */
+
     .search-container {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 10px;
+        background-color: rgb(0, 99, 92);
     }
+
+    .search-container p {
+        text-align: center;
+        color: white;
+        width: 95%;
+        text-transform: uppercase;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .search-container input {
+        text-align: center;
+        border-radius: 100px;
+        border: none;
+    }
+
+    /* PRODUCTOS */
 
     .productos-container {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
     }
 
-    .footer {
-        display: none;
+    .tarjeta {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: rgb(0, 99, 92);
+        border-radius: 20px;
+        width: 95%;
+        height: 400px;
+        margin: 15px;
+    }
+
+    .tarjeta img {
+        border-radius: 30px;
+        width: 60%;
+        height: 200px;
+    }
+
+    .tarjeta-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        height: 100px;
+    }
+
+    .tarjeta-info h2 {
+        color: white;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
+        width: 100%;
+    }
+
+    .tarjeta-info p {
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: capitalize;
+    }
+
+    .tarjeta-info span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: rgb(0, 99, 92);
+        font-family: 'Roboto', sans-serif;
+        border-radius: 100px;
+        width: 25%;
+        height: 35px;
+        margin: 5px;
+    }
+
+    .tarjeta button {
+        background-color: #1899D6;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        border: none;
+        border-radius: 100px;
+        width: 40%;
+        height: 30px;
     }
 }
+
+.footer {
+    display: none;
+}
+
 
 
 
