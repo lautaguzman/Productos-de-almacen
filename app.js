@@ -10,7 +10,7 @@ const searchContainer = document.querySelector("#searchContainer");
 
 // CAPTURAMOS ID PARA AGREGAR CARRITO
 const verCarrito = document.querySelector("#Vercarrito");
-const modalContainer = document.querySelector("#modal-carrito");
+const modalContainer = document.querySelector("#modalCarrito");
 
 // CAPTURAMOS ID PARA AGREGAR LOS PRODUCTOS
 const productos = document.querySelector("#productos");
@@ -34,8 +34,10 @@ fetch('./data.json')
         <img src="${producto.img}"/>
         <div class="tarjeta-info">
           <h2>${producto.nombre}</h2>
-          <p>${producto.marca}</p>
-          <span>$${producto.precio}</span>
+          <p>${producto.marca}</p> 
+        </div>
+        <span>$${producto.precio}</span>
+         
       `;
       productos.append(card);
 

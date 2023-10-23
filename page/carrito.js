@@ -16,10 +16,12 @@ const miCarrito = () => {
         modalContainer.style.display = "none";
     });
     modalHeader.append(buttonClose)
+    
     // CREAMOS CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
     carrito.forEach((producto) => {
         let modalCard = document.createElement("div");
         modalCard.className = "modalCard";
+
 
         let cardHeader = document.createElement("div")
         cardHeader.className = "card-header"
