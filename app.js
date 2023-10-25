@@ -61,7 +61,7 @@ fetch('./data.json')
 
         repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
           :
-          carrito.push({ id: producto.id, nombre: producto.nombre, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
+          carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
 
         mostrarCantidadEnCarrito()
         localSave()

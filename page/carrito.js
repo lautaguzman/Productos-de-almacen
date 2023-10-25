@@ -16,28 +16,33 @@ const miCarrito = () => {
         modalContainer.style.display = "none";
     });
     modalHeader.append(buttonClose)
-    
+
+
     // CREAMOS CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
     carrito.forEach((producto) => {
-        let modalCard = document.createElement("div");
-        modalCard.className = "modalCard";
 
+        // CONTENEDOR DE PRODUCTOS EN EL CARRITO
 
-        let cardHeader = document.createElement("div")
-        cardHeader.className = "card-header"
-        cardHeader.innerHTML = ` 
+        let cardCarrito = document.createElement("div");
+        cardCarrito.className = "card-carrito";
+        cardCarrito.innerHTML = `
         <img src="${producto.img}">
+        <div class="card-list">
         <h2>${producto.nombre}</h2>
-        <span>$${producto.precio * producto.cantidad}</span>`
-        modalCard.append(cardHeader)
+        <h3>${producto.marca}</h3>
+        <span>$${producto.precio * producto.cantidad}</span>
+        </div>
+        `
+        modalContainer.append(cardCarrito)
 
-        // CREAMOS BOTONERA PARA MANEJAR CANTIDADES
+
+        // CREAMOS CONTENEDOR DE  BOTONERA PARA MANEJAR CANTIDADES
         let cardButton = document.createElement("div")
-        cardButton.className = "cardButton"
-        modalCard.append(cardButton)
+        cardButton.className = "card-button"
+        cardCarrito.append(cardButton)
 
         let resta = document.createElement("span")
-        resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #000000;"></i>`
+        resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #00635c;"></i>`
         resta.addEventListener("click", () => {
             if (producto.cantidad !== 1) {
                 producto.cantidad--
@@ -53,7 +58,7 @@ const miCarrito = () => {
         cardButton.append(cardCantidad)
 
         let suma = document.createElement("span")
-        suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #000000;"></i>`
+        suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #00635c;"></i>`
         suma.addEventListener("click", () => {
             producto.cantidad++;
             localSave()
@@ -64,20 +69,21 @@ const miCarrito = () => {
         // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
         let btnEliminar = document.createElement("button")
         btnEliminar.className = "btn-eliminar"
-        btnEliminar.innerHTML = `<span>eliminar</span><i class="fa-sharp fa-solid fa-trash" style="color: #000000"></i>`;
+        btnEliminar.innerHTML = `<span>eliminar</span>`;
         btnEliminar.addEventListener("click", () => quitarProducto(producto.id))
-        modalCard.append(btnEliminar)
+        cardCarrito.append(btnEliminar)
 
-        modalContainer.append(modalCard);
+        modalContainer.append(cardCarrito);
     });
 
     // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
 
-    const cardFooter = document.createElement("div")
-    cardFooter.className = "cardFooter"
-    cardFooter.innerHTML = `total:$${total}`;
-    modalContainer.append(cardFooter);
+    const carritoFooter = document.createElement("div")
+    carritoFooter.className = "carrito-footer"
+    carritoFooter.innerHTML = `<span>total:$${total}</span>`;
+    modalContainer.append(carritoFooter);
+
 };
 
 verCarrito.addEventListener("click", miCarrito);
@@ -103,11 +109,11 @@ function mostrarCantidadEnCarrito() {
 
     localStorage.setItem("cantidadTotal", JSON.stringify(cantidadTotal))
 
-    if (cantidadTotal > 0) {
-        cantidadCarrito.textContent = JSON.parse(localStorage.getItem("cantidadTotal"));
-    } else {
+    cantidadTotal > 0 ?
+        cantidadCarrito.textContent = JSON.parse(localStorage.getItem("cantidadTotal"))
+        :
         cantidadCarrito.style.display = 'none';
-    }
+
 };
 
 mostrarCantidadEnCarrito()
