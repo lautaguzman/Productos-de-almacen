@@ -69,7 +69,7 @@ const miCarrito = () => {
         // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
         let btnEliminar = document.createElement("button")
         btnEliminar.className = "btn-eliminar"
-        btnEliminar.innerHTML = `<span>eliminar</span>`;
+        btnEliminar.innerHTML = `eliminar`;
         btnEliminar.addEventListener("click", () => quitarProducto(producto.id))
         cardCarrito.append(btnEliminar)
 
@@ -79,9 +79,9 @@ const miCarrito = () => {
     // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
 
-    const carritoFooter = document.createElement("div")
+    const carritoFooter = document.createElement("span")
     carritoFooter.className = "carrito-footer"
-    carritoFooter.innerHTML = `<span>total:$${total}</span>`;
+    carritoFooter.innerHTML = `total:$${total}`;
     modalContainer.append(carritoFooter);
 
 };

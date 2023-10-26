@@ -261,8 +261,10 @@
         color: white;
         text-transform: uppercase;
         width: 40%;
-        height: 40px;
+        min-height: 60px;
+        margin: 5px;
         margin-left: 50%;
+
     }
 
 
