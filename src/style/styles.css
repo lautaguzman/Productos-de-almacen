@@ -58,6 +58,21 @@
         border-radius: 15%;
     }
 
+
+    .btn-carrito span {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 50px;
+        position: absolute;
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 20px;
+        height: 20px;
+    }
+
     /* FORMULARIO */
 
     .form-container {

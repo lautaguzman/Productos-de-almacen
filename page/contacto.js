@@ -22,7 +22,7 @@ function mostrarForm() {
     <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre"/>
     <input type="email" name="email" id="email" placeholder="Ingresa tu email"  />
     </div>
-    <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje"></textarea>
+    <textarea name="mensaje" id="mensaje" minlength="10" placeholder="Escribe tu mensaje"></textarea>
     <div class="form-btn">
     <button type="reset">limpiar</button>
     <button type="submit">enviar</button>

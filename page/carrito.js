@@ -103,7 +103,7 @@ const quitarProducto = (id) => {
 // FUNCION PARA MOSTRAR LA CANTIDAD DE PRODUCTOS QUE HAY EN EL CARRITO
 function mostrarCantidadEnCarrito() {
     const cantidadCarrito = document.querySelector("#Cantidadcarrito");
-    cantidadCarrito.style.display = "block"
+    cantidadCarrito.style.display = "flex"
 
     const cantidadTotal = carrito.length;
 
