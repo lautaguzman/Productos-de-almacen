@@ -2,6 +2,7 @@
 const buscador = document.querySelector("#inputSearch")
 
 const buscarProd = () => {
+    const searchMensaje = document.querySelector("#searchMje")
     // CAPTURAMOS y ALMACENAMOS EL VALOR DEL INPUT EN ESTA CONSTANTE Y LO TRANSFORMO EN MINUSCULA
     const terminoBusqueda = buscador.value.toLowerCase();
 
@@ -13,9 +14,10 @@ const buscarProd = () => {
 
             productos.innerHTML = "";
 
-            (prodFiltrados.length === 0) ? alert(`no hay coincidencias`)
 
-                :
+            if (prodFiltrados.length === 0) {
+                searchMensaje.style.display = "flex"
+            } else {
                 prodFiltrados.forEach((producto) => {
                     let card = document.createElement("div");
                     card.className = "tarjeta";
@@ -56,6 +58,9 @@ const buscarProd = () => {
                     });
 
                 });
+                searchMensaje.style.display = "none"
+            };
+
         })
 
         .catch(error => {
@@ -65,6 +70,7 @@ const buscarProd = () => {
     if (buscador.value === "") {
         productos.innerHTML = "";
     }
+
 }
 
 buscador.addEventListener("input", buscarProd)
