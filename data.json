@@ -129,10 +129,10 @@
     },
     {
         "id": 17,
-        "nombre": "leche chocolatada",
-        "marca": "cindor",
+        "nombre": "manteca",
+        "marca": "sancor",
         "precio": 291,
-        "img": "./src/img/leche chocolatada.jpg",
+        "img": "./src/img/manteca sancor.jpg",
         "cantidad": 1
     },
     {
