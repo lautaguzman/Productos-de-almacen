@@ -22,19 +22,20 @@ const buscarProd = () => {
                     let card = document.createElement("div");
                     card.className = "tarjeta";
                     card.innerHTML = `
-                    <img src="${producto.img}"/>
-                    <div class="tarjeta-info">
-                      <h2>${producto.nombre}</h2>
-                      <p>${producto.marca}</p>
-                      <span>$${producto.precio}</span>`;
+                      <img src="${producto.img}"/>
+                        <h2>${producto.nombre}</h2>
+                        <p>${producto.marca}</p> 
+                        <span>$${producto.precio}</span>
+                    `;
 
                     productos.append(card);
 
+                    const añadirCarrito = document.createElement("div");
+                    añadirCarrito.className = "tarjeta-footer"
+                    añadirCarrito.innerHTML = `<button>añadir al carrito</button>`
 
-                    const añadirCarrito = document.createElement("button");
-                    añadirCarrito.innerText = `Añadir al carrito`;
-
-                    card.append(añadirCarrito);
+                    card.append(añadirCarrito)
+               
 
                     añadirCarrito.addEventListener("click", () => {
                         Swal.fire({

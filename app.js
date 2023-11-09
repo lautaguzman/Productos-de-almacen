@@ -32,20 +32,17 @@ fetch('./data.json')
       card.className = "tarjeta";
       card.innerHTML = `
         <img src="${producto.img}"/>
-        <div class="tarjeta-info">
           <h2>${producto.nombre}</h2>
           <p>${producto.marca}</p> 
-        </div>
-        <span>$${producto.precio}</span>
-         
+          <span>$${producto.precio}</span>
       `;
       productos.append(card);
 
+      const añadirCarrito = document.createElement("div");
+      añadirCarrito.className = "tarjeta-footer"
+      añadirCarrito.innerHTML = `<button>añadir al carrito</button>`
+      card.append(añadirCarrito)
 
-      const añadirCarrito = document.createElement("button");
-      añadirCarrito.innerText = `Añadir al carrito`;
-
-      card.append(añadirCarrito);
 
       añadirCarrito.addEventListener("click", () => {
         Swal.fire({
