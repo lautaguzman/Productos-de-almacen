@@ -1,9 +1,25 @@
-// CAPTURAMOS ID DE INPUT DE BUSQUEDA
+// ABRIR BUSCADOR
+const lupa = document.querySelector("#lupa");
+lupa.addEventListener("click", () => {
+    searchContainer.style.display = "flex"
+});
+
+// CONTENEDOR DE BUSCADOR
+const searchContainer = document.querySelector("#searchContainer");
+
+// BOTON PARA CERRAR BUSCADOR
+const closeSearch = document.querySelector("#closeSearch")
+closeSearch.addEventListener("click", () => {
+    searchContainer.style.display = "none"
+})
+// CAPTURO ID DE INPUT DE BUSQUEDA
 const buscador = document.querySelector("#inputSearch")
 
+
 const buscarProd = () => {
-    const searchMensaje = document.querySelector("#searchMje")
-    // CAPTURAMOS y ALMACENAMOS EL VALOR DEL INPUT EN ESTA CONSTANTE Y LO TRANSFORMO EN MINUSCULA
+    const noResultados = document.querySelector("#noResultados")
+
+    // CAPTURAMOS y ALMACENAMOS EL VALOR DEL INPUT EN ESTA CONSTANTE Y LO TRANSFORMO EN MINUSCULA CON UN METODO
     const terminoBusqueda = buscador.value.toLowerCase();
 
     fetch('./data.json')
@@ -16,26 +32,25 @@ const buscarProd = () => {
 
 
             if (prodFiltrados.length === 0) {
-                searchMensaje.style.display = "flex"
+                noResultados.style.display = "flex"
             } else {
                 prodFiltrados.forEach((producto) => {
                     let card = document.createElement("div");
                     card.className = "tarjeta";
                     card.innerHTML = `
-                      <img src="${producto.img}"/>
+                        <img src="${producto.img}"/>
                         <h2>${producto.nombre}</h2>
                         <p>${producto.marca}</p> 
                         <span>$${producto.precio}</span>
                     `;
-
                     productos.append(card);
 
-                    const añadirCarrito = document.createElement("div");
-                    añadirCarrito.className = "tarjeta-footer"
-                    añadirCarrito.innerHTML = `<button>añadir al carrito</button>`
+                    const añadirCarrito = document.createElement("button");
+                    añadirCarrito.innerText = `añadir al carrito`
+                    card.append(añadirCarrito)
 
                     card.append(añadirCarrito)
-               
+
 
                     añadirCarrito.addEventListener("click", () => {
                         Swal.fire({
@@ -46,7 +61,7 @@ const buscarProd = () => {
                             timer: 1000
                         });
 
-                        // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
+                        // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- Y QUE SE REFLEJE EN LA CANTIDAD
                         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
 
 
@@ -57,13 +72,10 @@ const buscarProd = () => {
                         mostrarCantidadEnCarrito()
                         localSave()
                     });
-
                 });
-                searchMensaje.style.display = "none"
+                noResultados.style.display = "none"
             };
-
         })
-
         .catch(error => {
             alert('Error al obtener el archivo JSON', error);
         });
@@ -71,7 +83,6 @@ const buscarProd = () => {
     if (buscador.value === "") {
         productos.innerHTML = "";
     }
-
 }
 
 buscador.addEventListener("input", buscarProd)

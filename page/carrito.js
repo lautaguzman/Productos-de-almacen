@@ -1,47 +1,55 @@
+// ARRAY VACIO DE CARRITO
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// CAPTURAMOS ID PARA VER CARRITO
+const verCarrito = document.querySelector("#Vercarrito");
+
+// CONTENEDOR CARRITO
+const carritoContainer = document.querySelector("#carritoContainer");
+
 // FUNCION PARA RENDERIZAR CARRITO
 const miCarrito = () => {
-    modalContainer.innerHTML = "";
-    modalContainer.style.display = "flex";
+    carritoContainer.innerHTML = "";
+    carritoContainer.style.display = "flex";
 
-    // CREAMOS EL HEADER DE  CARRITO
-    const modalHeader = document.createElement("div");
-    modalHeader.className = "carrito-header"
-    modalHeader.innerHTML = ` <h4>tu carrito</h4>
+    // HEADER DEL  CARRITO
+    const carritoHeader = document.createElement("header");
+    carritoHeader.className = "carrito-header"
+    carritoHeader.innerHTML = ` <p>tu carrito</p>
         `;
-    modalContainer.append(modalHeader);
+    carritoContainer.append(carritoHeader);
 
-    const buttonClose = document.createElement("span")
-    buttonClose.innerHTML = `<i class="fa-solid fa-xmark" style="color: #ffffff;"></i>`;
-    buttonClose.addEventListener("click", () => {
-        modalContainer.style.display = "none";
+    const closeCarrito = document.createElement("button")
+    closeCarrito.innerHTML = `<i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>`;
+    closeCarrito.addEventListener("click", () => {
+        carritoContainer.style.display = "none";
     });
-    modalHeader.append(buttonClose)
+    carritoHeader.append(closeCarrito)
 
+    // MAIN CARRITO
+    const carritoMain = document.createElement("main")
+    carritoMain.className = "carrito-main"
+    carritoContainer.append(carritoMain)
 
-    // CREAMOS CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
+    //CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
     carrito.forEach((producto) => {
-
-        // CONTENEDOR DE PRODUCTOS EN EL CARRITO
-
         let cardCarrito = document.createElement("div");
         cardCarrito.className = "card-carrito";
         cardCarrito.innerHTML = `
         <img src="${producto.img}">
         <div class="card-list">
-        <h2>${producto.nombre}</h2>
-        <h3>${producto.marca}</h3>
-        <span>$${producto.precio * producto.cantidad}</span>
+        <h5>${producto.nombre}</h5>
+        <p>${producto.marca}</p>
         </div>
         `
-        modalContainer.append(cardCarrito)
+        carritoMain.append(cardCarrito)
 
-
-        // CREAMOS CONTENEDOR DE  BOTONERA PARA MANEJAR CANTIDADES
+        //CONTENEDOR DE BOTONERA PARA MANEJAR CANTIDADES
         let cardButton = document.createElement("div")
         cardButton.className = "card-button"
         cardCarrito.append(cardButton)
 
-        let resta = document.createElement("span")
+        let resta = document.createElement("button")
         resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #00635c;"></i>`
         resta.addEventListener("click", () => {
             if (producto.cantidad !== 1) {
@@ -57,7 +65,7 @@ const miCarrito = () => {
         cardCantidad.innerHTML = `${producto.cantidad}`
         cardButton.append(cardCantidad)
 
-        let suma = document.createElement("span")
+        let suma = document.createElement("button")
         suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #00635c;"></i>`
         suma.addEventListener("click", () => {
             producto.cantidad++;
@@ -66,28 +74,56 @@ const miCarrito = () => {
         })
         cardButton.append(suma)
 
+        // PRECIO X CANTIDAD DE PRODUCTO
+        let precioProducto = document.createElement("span")
+        precioProducto.className = "precio-producto"
+        precioProducto.innerText = `$${producto.precio * producto.cantidad}`
+        cardCarrito.append(precioProducto)
+
+
         // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
         let btnEliminar = document.createElement("button")
         btnEliminar.className = "btn-eliminar"
-        btnEliminar.innerHTML = `eliminar`;
+        btnEliminar.innerHTML = `<i class="fa-solid fa-trash-can fa-xl" style="color: #000000;"></i>`;
         btnEliminar.addEventListener("click", () => quitarProducto(producto.id))
         cardCarrito.append(btnEliminar)
 
-        modalContainer.append(cardCarrito);
     });
+
+    // FOOTER DEL CARRITO
+    const carritoFooter = document.createElement("footer")
+    carritoFooter.className = "carrito-footer"
+    carritoContainer.append(carritoFooter)
+
 
     // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
-
-    const carritoFooter = document.createElement("span")
-    carritoFooter.className = "carrito-footer"
-    carritoFooter.innerHTML = `total:$${total}`;
-    modalContainer.append(carritoFooter);
+    const carritoTotal = document.createElement("span");
+    carritoTotal.className = "carrito-total";
+    carritoTotal.innerText = `Total: $${total}`;
+    carritoFooter.append(carritoTotal);
 
 };
 
-verCarrito.addEventListener("click", miCarrito);
+verCarrito.addEventListener("click", () => {
+    if (carrito.length === 0) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'CARRITO VACIO',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } else { miCarrito() };
+});
 
+
+// FUNCION CERRAR CARRITO
+function cerrarCarrito() {
+    if (carrito.length === 0) {
+        carritoContainer.style.display = "none"
+    }
+}
 // FUNCION PARA ELIMINAR UN PRODUCTO DEL CARRITO
 const quitarProducto = (id) => {
     const buscarId = carrito.find((articulo) => articulo.id === id)
@@ -98,6 +134,7 @@ const quitarProducto = (id) => {
     mostrarCantidadEnCarrito()
     localSave();
     miCarrito();
+    cerrarCarrito()
 };
 
 // FUNCION PARA MOSTRAR LA CANTIDAD DE PRODUCTOS QUE HAY EN EL CARRITO
@@ -117,3 +154,10 @@ function mostrarCantidadEnCarrito() {
 };
 
 mostrarCantidadEnCarrito()
+cerrarCarrito()
+
+
+const localSave = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+

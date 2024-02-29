@@ -1,28 +1,5 @@
-// CAPTURAMOS ID PARA RECARGAR PAGINA DE INICIO
-const inicio = document.querySelector("#inicio");
-
-// CAPTURAMOS ID PARA AGREGAR FORMULARIO
-const contacto = document.querySelector("#contacto");
-const modalForm = document.querySelector("#modalForm");
-
-// CAPTURAMOS ID PARA AGREGAR INPUT DE BUSQUEDA
-const searchContainer = document.querySelector("#searchContainer");
-
-// CAPTURAMOS ID PARA AGREGAR CARRITO
-const verCarrito = document.querySelector("#Vercarrito");
-const modalContainer = document.querySelector("#modalCarrito");
-
 // CAPTURAMOS ID PARA AGREGAR LOS PRODUCTOS
 const productos = document.querySelector("#productos");
-
-// ARRAY VACIO DE CARRITO
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-// RECARGAR PAGINA DESDE INICIO
-inicio.addEventListener("click", () => {
-  location.reload();
-});
-
 
 fetch('./data.json')
   .then(response => response.json())
@@ -38,9 +15,8 @@ fetch('./data.json')
       `;
       productos.append(card);
 
-      const añadirCarrito = document.createElement("div");
-      añadirCarrito.className = "tarjeta-footer"
-      añadirCarrito.innerHTML = `<button>añadir al carrito</button>`
+      const añadirCarrito = document.createElement("button");
+      añadirCarrito.innerText = `añadir al carrito`
       card.append(añadirCarrito)
 
 
@@ -48,9 +24,9 @@ fetch('./data.json')
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Producto Agregado',
+          title: 'PRODUCTO AGREGADO',
           showConfirmButton: false,
-          timer: 1000
+          timer: 1500
         });
 
         // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
@@ -70,11 +46,6 @@ fetch('./data.json')
   .catch(error => {
     alert('Error al obtener el archivo JSON', error);
   });
-
-const localSave = () => {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-};
-
 
 
 // FUNCIONES DEL FOOTER

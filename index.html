@@ -11,49 +11,86 @@
     ></script>
     <!-- CSS PROPIO -->
     <link rel="stylesheet" href="./src/style/styles.css" />
-
     <title>Productos random</title>
   </head>
   <body>
     <!-- BARRA DE NAVEGACION -->
     <nav class="nav">
-      <div class="nav-inicio">
-        <a id="inicio">inicio</a>
+      <div class="nav-inicio" id="inicio">
+        <i class="fa-solid fa-house fa-xl" style="color: #ffffff"></i>
+        <h3>inicio</h3>
       </div>
-      <div class="nav-items">
-        <button class="nav-contacto" id="contacto">
+      <span class="open-items" id="openItems"
+        ><i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i
+      ></span>
+      <ul class="nav-items" id="navItems">
+        <span>
           <i
-            alt="mensaje"
-            class="fa-regular fa-envelope fa-lg"
+            class="fa-solid fa-arrow-up"
+            style="color: #ffffff"
+            id="closeItems"
+          ></i
+        ></span>
+        <li id="lupa">
+          <i
+            class="fa-solid fa-magnifying-glass fa-lg"
             style="color: #00635c"
           ></i>
-        </button>
-        <button class="nav-carrito" id="Vercarrito">
-          <i
-            alt="carrito"
-            class="fa-solid fa-cart-shopping fa-lg"
-            style="color: #00635c"
-          ></i>
+        </li>
+        <li id="contacto">
+          <i class="fa-regular fa-envelope fa-lg" style="color: #00635c"></i>
+        </li>
+        <li class="nav-carrito" id="Vercarrito">
+          <i class="fa-solid fa-cart-shopping fa-lg" style="color: #00635c"></i>
           <span id="Cantidadcarrito"></span>
-        </button>
-      </div>
+        </li>
+      </ul>
     </nav>
 
     <!-- MODAL FORMULARIO -->
-    <div id="modalForm" class="form-container"></div>
+    <div id="formularioContainer" class="form-container"></div>
 
     <!-- MODAL CARRITO -->
-    <div id="modalCarrito" class="carrito-container"></div>
+    <div id="carritoContainer" class="carrito-container"></div>
 
-    <!-- BUSCADOR -->
-    <div class="search-container" id="searchContainer">
-      <p>¿qué estás buscando?</p>
-      <input id="inputSearch" type="text" placeholder="Buscar Productos..." />
-      <h2 class="search-mje" id="searchMje">no hay resultados</h2>
-    </div>
+    <main>
+      <!-- CATEGORIAS -->
+      <section class="categorias-container">
+        <header class="categorias-header">
+          <h4>categorias</h4>
+          <button id="desplegarCategorias">
+            <i class="fa-solid fa-arrow-down" id="cambiarIcono"></i>
+          </button>
+        </header>
+        <ul class="categorias-buttons" id="categorias">
+          <li>almacen</li>
+          <li>carniceria</li>
+          <li>frutas y verduras</li>
+          <li>limpieza</li>
+        </ul>
+      </section>
 
-    <!-- PRODUCTOS -->
-    <div id="productos" class="productos-container"></div>
+      <!-- BUSCADOR -->
+      <section class="search-container" id="searchContainer">
+        <header class="search-header">
+          <p>¿que estás buscando?</p>
+          <button class="close-search" id="closeSearch">
+            <i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>
+          </button>
+        </header>
+
+        <input id="inputSearch" type="text" placeholder="buscar" />
+      </section>
+
+      <div class="no-resultados" id="noResultados">
+        <p class="search-mje" id="searchMje">
+          no hay resultados para tu busqueda
+        </p>
+      </div>
+
+      <!-- PRODUCTOS -->
+      <div id="productos" class="productos-container"></div>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer" id="footer">
@@ -89,8 +126,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- MIS SCRIPTS -->
     <script src="./app.js"></script>
-    <script src="./page/buscador.js"></script>
+    <script src="./page/nav.js"></script>
     <script src="./page/contacto.js"></script>
+    <script src="./page/buscador.js"></script>
     <script src="./page/carrito.js"></script>
+    <script src="./page/categorias.js"></script>
   </body>
 </html>

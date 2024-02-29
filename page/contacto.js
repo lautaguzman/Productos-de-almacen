@@ -1,79 +1,139 @@
-function mostrarForm() {
-    modalForm.innerHTML = "";
-    modalForm.style.display = "flex";
+const contacto = document.querySelector("#contacto");
 
+// CONTENEDOR DE FORMULARIO
+const formularioContainer = document.querySelector("#formularioContainer");
 
-    const formHeader = document.createElement("header")
-    formHeader.className = "form-header"
-    formHeader.innerHTML = `<h4>dejanos tu mensaje</h4>`
-    modalForm.append(formHeader)
+function form() {
+    formularioContainer.innerHTML = ""
+    formularioContainer.style.display = "flex";
 
-    const formClose = document.createElement("span");
-    formClose.innerHTML = `<i class="fa-solid fa-xmark" style="color: #ffffff;"></i>`;
+    const formHeader = document.createElement("header");
+    formHeader.className = "form-header";
+    formHeader.innerHTML = `<h4>Dejanos tu mensaje</h4>`;
+    formularioContainer.append(formHeader);
+
+    const formClose = document.createElement("button");
+    formClose.className = "close-form"
+    formClose.innerHTML = `<i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>`;
     formClose.addEventListener("click", () => {
-        modalForm.style.display = "none";
+        formularioContainer.style.display = "none"
     });
-    formHeader.append(formClose);
+    formHeader.append(formClose)
 
-    const formulario = document.createElement("form");
-    formulario.className = "formulario";
-    formulario.innerHTML = `
-    <div class="form-input">   
-    <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre"/>
-    <input type="email" name="email" id="email" placeholder="Ingresa tu email"  />
-    </div>
-    <textarea name="mensaje" id="mensaje" minlength="10" placeholder="Escribe tu mensaje"></textarea>
-    <div class="form-btn">
-    <button type="reset">limpiar</button>
-    <button type="submit">enviar</button>
-    </div>`;
-    modalForm.append(formulario);
+    const formulario = document.createElement("form")
+    formulario.className = "formulario"
+    formularioContainer.append(formulario)
+
+    const nameInput = document.createElement("input")
+    nameInput.type = "text"
+    nameInput.placeholder = "Escribe tu nombre"
+    nameInput.id = "nombre";
+    formulario.append(nameInput)
+
+
+    const email = document.createElement("input")
+    email.type = "email"
+    email.placeholder = "Escribe tu email"
+    email.id = "email"
+    formulario.append(email)
+
+    const mensaje = document.createElement("textarea")
+    mensaje.placeholder = "Escribe tu mensaje";
+    mensaje.id = "mensaje"
+    formulario.append(mensaje)
+
+    const buttonsForm = document.createElement("div")
+    buttonsForm.className = "button-form"
+    formulario.append(buttonsForm)
+
+    const limpiarForm = document.createElement("button")
+    limpiarForm.type = "button"
+    limpiarForm.innerText = `limpiar`
+    buttonsForm.append(limpiarForm);
+    // Limpiar los campos del formulario 
+    limpiarForm.addEventListener("click", () => {
+        formulario.reset();
+    });
+
+
+    const enviarForm = document.createElement("button")
+    enviarForm.type = "submit"
+    enviarForm.innerText = `enviar`
+    buttonsForm.append(enviarForm)
 
     formulario.addEventListener("submit", validarForm)
 }
 
-contacto.addEventListener("click", mostrarForm)
-
+contacto.addEventListener("click", form)
 
 function validarForm(event) {
     event.preventDefault();
 
     const name = document.querySelector("#nombre").value
+    const mje = document.querySelector("#mensaje").value
+
     const email = document.querySelector("#email").value
-    const msj = document.querySelector("#mensaje").value
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
-    if (name === "" || email === "" || msj === "") {
+    if (name === "") {
         Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Completa los campos',
+            title: 'Por favor, complete el campo de nombre antes de enviar el formulario.',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
         });
         return;
-    };
+    }
 
-    if (!emailRegex.test(email)) {
+    if (email === "") {
         Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'Correo invalido',
+            title: 'Por favor, complete el campo de correo electrónico antes de enviar el formulario.',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
+        });
+        return;
+
+    } else if (!regExp.test(email)) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Por favor, ingrese un correo electrónico válido.',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        return;
+    }
+
+    if (mje === "") {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Por favor, complete el campo de mensaje antes de enviar el formulario.',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        return;
+    } else if (mje.length <= 10) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Ingresa al menos 10 caracteres en el mensaje',
+            showConfirmButton: false,
+            timer: 2000
         });
         return;
     };
-
-    // alert(`tu nombre es ${name}`)
 
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Mensaje Enviado',
+        title: `¡Gracias por tu mensaje ${name}!`,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
     });
-    modalForm.style.display = "none";
-};
+
+    formularioContainer.style.display = "none";
+}
