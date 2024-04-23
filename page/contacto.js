@@ -3,6 +3,9 @@ const contacto = document.querySelector("#contacto");
 // CONTENEDOR DE FORMULARIO
 const formularioContainer = document.querySelector("#formularioContainer");
 
+const contactoForm = document.querySelector("#contactoFooter")
+contactoForm.addEventListener("click", form)
+
 function form() {
     formularioContainer.innerHTML = ""
     formularioContainer.style.display = "flex";

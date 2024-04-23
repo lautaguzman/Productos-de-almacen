@@ -11,115 +11,111 @@
     ></script>
     <!-- CSS PROPIO -->
     <link rel="stylesheet" href="./src/style/styles.css" />
-    <title>Productos random</title>
+    <title>productos de almacen</title>
   </head>
   <body>
-    <!-- BARRA DE NAVEGACION -->
-    <nav class="nav">
-      <div class="nav-inicio" id="inicio">
-        <i class="fa-solid fa-house fa-xl" style="color: #ffffff"></i>
-        <h3>inicio</h3>
-      </div>
-      <span class="open-items" id="openItems"
-        ><i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i
-      ></span>
-      <ul class="nav-items" id="navItems">
-        <span>
-          <i
-            class="fa-solid fa-arrow-up"
-            style="color: #ffffff"
-            id="closeItems"
-          ></i
+    <header>
+      <!-- BARRA DE NAVEGACION -->
+      <nav class="nav">
+        <div class="nav-inicio" id="inicio">
+          <i class="fa-solid fa-house fa-xl" style="color: #ffffff"></i>
+          <h3>inicio</h3>
+        </div>
+        <span class="open-items" id="openItems"
+          ><i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i
         ></span>
-        <li id="lupa">
-          <i
-            class="fa-solid fa-magnifying-glass fa-lg"
-            style="color: #00635c"
-          ></i>
-        </li>
-        <li id="contacto">
-          <i class="fa-regular fa-envelope fa-lg" style="color: #00635c"></i>
-        </li>
-        <li class="nav-carrito" id="Vercarrito">
-          <i class="fa-solid fa-cart-shopping fa-lg" style="color: #00635c"></i>
-          <span id="Cantidadcarrito"></span>
-        </li>
-      </ul>
-    </nav>
+        <ul class="nav-items" id="navItems">
+          <span>
+            <i
+              class="fa-solid fa-arrow-up"
+              style="color: #ffffff"
+              id="closeItems"
+            ></i
+          ></span>
+          <li class="nav-lupa" id="lupa">
+            <i
+              class="fa-solid fa-magnifying-glass fa-lg"
+              style="color: #00635c"
+            ></i>
+          </li>
+          <li class="nav-contacto" id="contacto">
+            <i class="fa-regular fa-envelope fa-lg" style="color: #00635c"></i>
+          </li>
+          <li class="nav-carrito" id="Vercarrito">
+            <i
+              class="fa-solid fa-cart-shopping fa-lg"
+              style="color: #00635c"
+            ></i>
+            <span class="cantidad-carrito" id="cantidadCarrito"></span>
+          </li>
+        </ul>
+      </nav>
 
+      <!-- BUSCADOR -->
+      <section class="search-container" id="searchContainer">
+        <input
+          id="inputSearch"
+          type="text"
+          placeholder="¿que estás buscando?"
+        />
+        <button class="close-search" id="closeSearch">
+          <i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>
+        </button>
+      </section>
+
+      <!-- CATEGORIAS -->
+      <ul class="categorias-items">
+        <li id="almacenes">almacen</li>
+        <li>carniceria</li>
+        <li>frutas y verduras</li>
+        <li>limpieza</li>
+      </ul>
+    </header>
     <!-- MODAL FORMULARIO -->
     <div id="formularioContainer" class="form-container"></div>
 
     <!-- MODAL CARRITO -->
     <div id="carritoContainer" class="carrito-container"></div>
 
-    <main>
-      <!-- CATEGORIAS -->
-      <section class="categorias-container">
-        <header class="categorias-header">
-          <h4>categorias</h4>
-          <button id="desplegarCategorias">
-            <i class="fa-solid fa-arrow-down" id="cambiarIcono"></i>
-          </button>
-        </header>
-        <ul class="categorias-buttons" id="categorias">
-          <li>almacen</li>
-          <li>carniceria</li>
-          <li>frutas y verduras</li>
-          <li>limpieza</li>
-        </ul>
-      </section>
-
-      <!-- BUSCADOR -->
-      <section class="search-container" id="searchContainer">
-        <header class="search-header">
-          <p>¿que estás buscando?</p>
-          <button class="close-search" id="closeSearch">
-            <i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>
-          </button>
-        </header>
-
-        <input id="inputSearch" type="text" placeholder="buscar" />
-      </section>
-
-      <div class="no-resultados" id="noResultados">
-        <p class="search-mje" id="searchMje">
-          no hay resultados para tu busqueda
-        </p>
-      </div>
-
-      <!-- PRODUCTOS -->
-      <div id="productos" class="productos-container"></div>
-    </main>
+    <main class="content-main" id="content"></main>
 
     <!-- FOOTER -->
     <footer class="footer" id="footer">
-      <p>¡seguime en mis redes!</p>
-      <div class="footer-redes">
-        <div class="footer-linkedin">
-          <i
-            id="linkedin"
-            alt="linkedin"
-            class="fa-brands fa-linkedin fa-bounce"
-            style="color: #ffffff"
-          ></i>
-        </div>
-        <div class="footer-insta">
-          <i
-            id="instagram"
-            alt="instagram"
-            class="fa-brands fa-instagram fa-bounce"
-            style="color: #ffffff"
-          ></i>
-        </div>
-        <div class="footer-gh">
-          <i
-            id="github"
-            alt="github"
-            class="fa-brands fa-github fa-bounce"
-            style="color: #ffffff"
-          ></i>
-        </div>
+      <div class="footer-contacto">
+        <h2>contáctenos</h2>
+        <button id="contactoFooter">
+          <i class="fa-regular fa-envelope fa-lg" style="color: #00635c"></i>
+        </button>
+      </div>
+
+      <div class="redes-container">
+        <h3>¡seguime en mis redes!</h3>
+        <ul class="footer-redes">
+          <li class="redes-linkedin">
+            <i
+              id="linkedin"
+              alt="linkedin"
+              class="fa-brands fa-linkedin fa-bounce"
+              style="color: #ffffff"
+            ></i>
+          </li>
+          <li class="redes-insta">
+            <i
+              id="instagram"
+              alt="instagram"
+              class="fa-brands fa-instagram fa-bounce"
+              style="color: #ffffff"
+            ></i>
+          </li>
+          <li class="redes-gh">
+            <i
+              id="github"
+              alt="github"
+              class="fa-brands fa-github fa-bounce"
+              style="color: #ffffff"
+            ></i>
+          </li>
+        </ul>
       </div>
     </footer>
     <!-- SWEETALERT -->

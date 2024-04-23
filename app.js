@@ -1,52 +1,59 @@
-// CAPTURAMOS ID PARA AGREGAR LOS PRODUCTOS
-const productos = document.querySelector("#productos");
+//CAPTURAMOS ID  MAIN 
+const content = document.querySelector("#content")
+// CONTENEDOR DE PRODUCTOS
+const productosContainer = document.createElement("div")
+productosContainer.className = "productos-container"
+content.append(productosContainer)
 
-fetch('./data.json')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach((producto) => {
-      let card = document.createElement("div");
-      card.className = "tarjeta";
-      card.innerHTML = `
-        <img src="${producto.img}"/>
-          <h2>${producto.nombre}</h2>
-          <p>${producto.marca}</p> 
-          <span>$${producto.precio}</span>
-      `;
-      productos.append(card);
+function mostrarProductos() {
+  fetch('./data.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach((producto) => {
+        let card = document.createElement("article");
+        card.className = "tarjeta";
+        card.innerHTML = `
+        <img src = "${producto.img}"/>       
+        <h2>${producto.nombre}</h2>
+        <p>${producto.marca}</p> 
+        <p>${producto.medida}</p>
+        <span>$${producto.precio}</span>
+        `;
+        productosContainer.append(card);
 
-      const añadirCarrito = document.createElement("button");
-      añadirCarrito.innerText = `añadir al carrito`
-      card.append(añadirCarrito)
+        const añadirCarrito = document.createElement("button");
+        añadirCarrito.innerText = `Añadir al carrito`;
+        card.append(añadirCarrito);
 
+        añadirCarrito.addEventListener("click", () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'PRODUCTO AGREGADO',
+            showConfirmButton: false,
+            timer: 1500
+          });
 
-      añadirCarrito.addEventListener("click", () => {
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'PRODUCTO AGREGADO',
-          showConfirmButton: false,
-          timer: 1500
+          // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
+          const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
+
+          repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
+            :
+            carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
+
+          mostrarCantidadEnCarrito();
+          localSave();
         });
 
-        // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
-        const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
-
-        repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
-          :
-          carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
-
-        mostrarCantidadEnCarrito()
-        localSave()
       });
-
+    })
+    .catch(error => {
+      alert('Error al obtener el archivo JSON', error);
     });
-  })
+}
 
-  .catch(error => {
-    alert('Error al obtener el archivo JSON', error);
-  });
-
+// Llamamos a la función para mostrar los productos al cargar la página
+mostrarProductos();
 
 // FUNCIONES DEL FOOTER
 
