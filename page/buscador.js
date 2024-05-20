@@ -15,17 +15,20 @@ const buscador = document.querySelector("#inputSearch");
 // BOTON PARA CERRAR BUSCADOR
 const closeSearch = document.querySelector("#closeSearch");
 // Agregar un evento de clic al botón de cerrar búsqueda para ocultar el contenedor de búsqueda y limpiar el campo de búsqueda
-closeSearch.addEventListener("click", () => {
+closeSearch.addEventListener("click", closeBuscador)
+
+
+function closeBuscador() {
+    // Oculta el contenedor de búsqueda
     searchContainer.style.display = "none";
-    closeMje()
-});
-function closeMje() {
-    if (searchContainer.style.display === "none") {
-        buscador.value = "";
-        noHayResultados.style.display = "none";
-        productosContainer.innerHTML = ""
-        mostrarProductos()
-    }
+
+    // Limpia el campo de búsqueda y oculta el mensaje de no hay resultados
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
+    // Limpia el contenedor de productos y muestra los productos nuevamente
+    productosContainer.innerHTML = "";
+    mostrarProductos();
 }
 
 
@@ -57,7 +60,7 @@ const buscarProd = () => {
             } else {
                 // Crear una tarjeta de producto para cada producto filtrado
                 prodFiltrados.forEach((producto) => {
-                    let card = document.createElement("article");
+                    let card = document.createElement("div");
                     card.className = "tarjeta";
                     card.innerHTML = `
                     <img src = "${producto.img}"/>       

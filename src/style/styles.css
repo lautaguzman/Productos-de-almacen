@@ -277,7 +277,6 @@ header {
 
 .formulario input:focus {
     outline: none;
-
 }
 
 .formulario input::placeholder {
@@ -329,18 +328,19 @@ header {
     transform: translateY(4px);
 }
 
+
 /* CONTENEDOR CARRITO */
 .carrito-container {
     display: none;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
-    border-radius: 10px;
-    border: solid 3px rgb(0, 99, 92);
-    top: 15px;
-    width: 95%;
-    height: 95%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
 }
 
 /* HEADER CARRITO */
@@ -348,17 +348,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 15%;
-    border: solid 1px black;
+    background-color: rgb(0, 99, 92);
+    border-radius: 20px;
+    width: 50%;
+    height: 10%;
 }
 
 .carrito-header p {
-    font-size: 2rem;
-    font-weight: 700;
-    color: rgb(0, 99, 92);
+    font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
     text-transform: uppercase;
+    color: white;
 }
 
 .carrito-header button {
@@ -366,45 +366,197 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
+    background-color: white;
     cursor: pointer;
     width: 50px;
     height: 50px;
-    margin-left: 95%;
+    margin-left: 45%;
 }
 
 .carrito-header button i {
     font-size: 60px;
 }
 
-/* MENU CARRITO */
+/* MAIN CART / PRODUCT CART */
 .carrito-main {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 85%;
-    border: solid 4px blue;
-}
-
-/* PROD CARRITO */
-.prod-carrito {
-    width: 50%;
-    height: auto;
-    max-height: 400px;
-    border: solid 2px green;
-    overflow-y: auto;
-}
-
-.carrito-footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 10vh;
+    height: 70%;
+}
+
+.main-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    overflow: auto;
+    position: relative;
+    width: 45%;
+    height: 100%;
+}
+
+.main-card::-webkit-scrollbar {
+    display: none;
 }
 
 .card-carrito {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 100px;
+    border-radius: 50px;
+    border: solid 2px rgb(0, 99, 92);
+    margin: 10px;
+}
+
+.card-carrito img {
+    height: 90%;
+    width: 100px;
+    border-radius: 100px;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+    width: 120px;
+    height: 100%;
+}
+
+.card-list h5 {
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
     width: 100%;
-    border: solid 1px white;
+}
+
+.card-list p {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(0, 99, 92);
+    white-space: nowrap;
+    width: 100%;
+}
+
+.card-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100px;
+}
+
+.card-button button {
+    height: 20px;
+    width: 20px;
+}
+
+.card-precio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 99, 92);
+    color: white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80%;
+}
+
+
+.delete-prod {
+    cursor: pointer;
+}
+
+/*FORM CART */
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(0, 99, 92);
+    width: 45%;
+    height: 100%;
+}
+
+.main-form h5 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    height: 10%;
+}
+
+.form-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+}
+
+.form-cart input {
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    height: 50px;
+}
+
+.form-cart input:focus {
+    outline: none;
+}
+
+.form-cart input::placeholder {
+    color: rgb(0, 99, 92);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* CART FOOTER */
+.carrito-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 5px;
+    width: 50%;
+    height: 10%;
+}
+
+.carrito-footer p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 99, 92);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    border: solid 2px rgb(0, 99, 92);
+    border-radius: 10px;
+    width: 45%;
+    height: 90%;
+}
+
+.carrito-footer button {
+    background-color: rgb(0, 99, 92);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 10px;
+    width: 45%;
+    height: 90%;
 }
 
 /* MAIN */
@@ -458,7 +610,6 @@ header {
     width: 20%;
     height: 320px;
 }
-
 
 .tarjeta img {
     width: 140px;
@@ -641,3 +792,16 @@ header {
     } */
 
 }
+
+/* PROD CARRITO */
+/* .prod-carrito {
+    margin: 5px;
+    width: 50%;
+    height: 90%;
+    overflow: auto;
+    border: solid 2px green;
+}
+
+.prod-carrito::-webkit-scrollbar {
+    display: none;
+} */

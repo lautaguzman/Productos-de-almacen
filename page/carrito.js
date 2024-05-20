@@ -1,147 +1,125 @@
-// ARRAY VACIO DE CARRITO
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
 // CAPTURAMOS ID PARA VER CARRITO
 const verCarrito = document.querySelector("#Vercarrito");
 
 // CONTENEDOR CARRITO
 const carritoContainer = document.querySelector("#carritoContainer");
 
+
+const closeCarrito = document.querySelector("#closeCarrito")
+closeCarrito.addEventListener("click", () => {
+    carritoContainer.style.display = "none"
+})
+
+// ARRAY VACIO DE CARRITO
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 // FUNCION PARA RENDERIZAR CARRITO
 const miCarrito = () => {
-    carritoContainer.innerHTML = "";
-    carritoContainer.style.display = "flex";
+    if (carrito.length === 0) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'CARRITO VACIO',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        carritoContainer.style.display = "none"
+    } else {
+        carritoContainer.style.display = "flex";
 
-    // HEADER DEL  CARRITO
-    const carritoHeader = document.createElement("header");
-    carritoHeader.className = "carrito-header"
-    carritoHeader.innerHTML = ` <p>detalles de tu compra</p>
-        `;
-    carritoContainer.append(carritoHeader);
+        // MAIN CARRITO DONDE SE VEN LOS PRODUCTOS QUE AGREGAMOS
+        const mainCard = document.querySelector("#mainCard")
+        mainCard.innerHTML = "";
 
-    const closeCarrito = document.createElement("button")
-    closeCarrito.innerHTML = `<i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>`;
-    closeCarrito.addEventListener("click", () => {
-        carritoContainer.style.display = "none";
-    });
-    carritoHeader.append(closeCarrito)
-
-    // MAIN CARRITO
-    const carritoMain = document.createElement("div")
-    carritoMain.className = "carrito-main"
-    carritoContainer.append(carritoMain)
-
-    // PROD CARRITO
-    const prodCarrito = document.createElement("div")
-    prodCarrito.className = "prod-carrito"
-    carritoMain.append(prodCarrito)
-
-    //CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
-    carrito.forEach((producto) => {
-        let cardCarrito = document.createElement("div");
-        cardCarrito.className = "card-carrito";
-        cardCarrito.innerHTML = `
-        <img src="${producto.img}">
+        //CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
+        carrito.forEach((productos) => {
+            let cardCarrito = document.createElement("div");
+            cardCarrito.className = "card-carrito";
+            cardCarrito.innerHTML = `
+        <img src="${productos.img}">
         <div class="card-list">
-        <h5>${producto.nombre}</h5>
-        <p>${producto.marca}</p>
-        <p>${producto.medida}</p>
-        </div>
-        `
-        prodCarrito.append(cardCarrito)
+        <h5>${productos.nombre}</h5>
+        <p>${productos.marca}</p>
+        <p>${productos.medida}</p>
+        </div>`
+            mainCard.append(cardCarrito)
 
 
-        //CONTENEDOR DE BOTONERA PARA MANEJAR CANTIDADES
-        let cardButton = document.createElement("div")
-        cardButton.className = "card-button"
-        cardCarrito.append(cardButton)
+            //CONTENEDOR DE BOTONERA PARA MANEJAR CANTIDADES
+            let cardButton = document.createElement("div")
+            cardButton.className = "card-button"
+            cardCarrito.append(cardButton)
 
-        let resta = document.createElement("button")
-        resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #00635c;"></i>`
-        resta.addEventListener("click", () => {
-            if (producto.cantidad !== 1) {
-                producto.cantidad--
-            };
-            localSave()
-            miCarrito();
+            let resta = document.createElement("button")
+            resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #00635c;"></i>`
+            resta.addEventListener("click", () => {
+                if (productos.cantidad !== 1) {
+                    productos.cantidad--
+                };
+                localSave()
+                miCarrito();
+            });
+
+            cardButton.append(resta)
+
+            let cardCantidad = document.createElement("h4")
+            cardCantidad.innerHTML = `${productos.cantidad}`
+            cardButton.append(cardCantidad)
+
+
+
+            let suma = document.createElement("button")
+            suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #00635c;"></i>`
+            suma.addEventListener("click", () => {
+                productos.cantidad++;
+                localSave()
+                miCarrito()
+            })
+            cardButton.append(suma)
+
+
+            // PRECIO X CANTIDAD DE PRODUCTO
+            let precioProducto = document.createElement("span")
+            precioProducto.className = "card-precio"
+            precioProducto.innerText = `$${productos.precio * productos.cantidad}`
+            cardCarrito.append(precioProducto)
+
+
+            // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
+            let btnEliminar = document.createElement("i")
+            btnEliminar.className = "delete-prod fa-solid fa-delete-left fa-2xl"
+            btnEliminar.style = "color: #ff0000"
+            btnEliminar.addEventListener("click", () => quitarProducto(productos.id))
+            cardCarrito.append(btnEliminar)
+
         });
 
-        cardButton.append(resta)
+        const carritoFooter = document.querySelector("#carritoFooter")
+        carritoFooter.innerHTML = "";
 
-        let cardCantidad = document.createElement("h4")
-        cardCantidad.innerHTML = `${producto.cantidad}`
-        cardButton.append(cardCantidad)
-
-        let suma = document.createElement("button")
-        suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #00635c;"></i>`
-        suma.addEventListener("click", () => {
-            producto.cantidad++;
-            localSave()
-            miCarrito()
-        })
-        cardButton.append(suma)
+        const totalCompra = document.createElement("p")
+        carritoFooter.append(totalCompra)
 
 
-        // PRECIO X CANTIDAD DE PRODUCTO
-        let precioContainer = document.createElement("div")
-        precioContainer.className = "precio-container"
-        precioContainer.innerHTML = `<p>precio</p>`
-        cardCarrito.append(precioContainer)
+        //FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
+        const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
+        const totalFormateado = total.toLocaleString();
+        totalCompra.innerHTML = `total: ${totalFormateado}`
+    }
+    // FINALIZAR PEDIDO
+    const buttonFooter = document.createElement("button")
+    buttonFooter.innerText = `realizar pedido`;
+    carritoFooter.append(buttonFooter)
 
-        let precioProducto = document.createElement("span")
-        precioProducto.innerText = `$${producto.precio * producto.cantidad}`
-        precioContainer.append(precioProducto)
-
-
-        // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
-        let btnEliminar = document.createElement("button")
-        btnEliminar.className = "btn-eliminar"
-        btnEliminar.innerHTML = `<i class="fa-solid fa-trash" style="color: #ffffff;"></i>`;
-        btnEliminar.addEventListener("click", () => quitarProducto(producto.id))
-        cardCarrito.append(btnEliminar)
-
-    });
-
-    // FOOTER DEL CARRITO
-    // let carritoFooter = document.createElement("footer")
-    // carritoFooter.className = "carrito-footer"
-    // prodCarrito.append(carritoFooter)
-
-    let vaciarCarrito = document.createElement("button")
-    vaciarCarrito.innerText = `vaciar carrito`
-    carritoFooter.append(vaciarCarrito)
-
-
-    // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
-    const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0)
-    let carritoTotal = document.createElement("span");
-    carritoTotal.className = "carrito-total"
-    carritoTotal.innerText = `Total: $${total}`;
-    carritoFooter.append(carritoTotal);
-
+    buttonFooter.addEventListener("click", realizarPedido)
 };
 
-
-verCarrito.addEventListener("click", () => {
+verCarrito.addEventListener("click", function () {
     miCarrito()
-    // if (carrito.length === 0) {
-    //     Swal.fire({
-    //         position: 'center',
-    //         icon: 'error',
-    //         title: 'CARRITO VACIO',
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //     });
-    // } else { miCarrito() };
-});
+    formCompra()
+}
+);
 
-
-// FUNCION CERRAR CARRITO
-// function cerrarCarrito() {
-//     if (carrito.length === 0) {
-//         carritoContainer.style.display = "none"
-//     }
-// }
 
 // FUNCION PARA ELIMINAR UN PRODUCTO DEL CARRITO
 const quitarProducto = (id) => {
@@ -153,7 +131,6 @@ const quitarProducto = (id) => {
     mostrarCantidadEnCarrito()
     localSave();
     miCarrito();
-    // cerrarCarrito()
 };
 
 // FUNCION PARA MOSTRAR LA CANTIDAD DE PRODUCTOS QUE HAY EN EL CARRITO
@@ -173,9 +150,9 @@ function mostrarCantidadEnCarrito() {
 };
 
 mostrarCantidadEnCarrito()
-// cerrarCarrito()
 
 const localSave = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 };
+
 

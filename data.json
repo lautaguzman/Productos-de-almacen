@@ -135,6 +135,7 @@
         "marca": "elite",
         "medida": "x4",
         "precio": 3685,
+        "categoria": "limpieza",
         "img": "./src/img/limpieza/papel higienico.jpg",
         "cantidad": 1
     },

@@ -3,6 +3,7 @@ const contacto = document.querySelector("#contacto");
 // CONTENEDOR DE FORMULARIO
 const formularioContainer = document.querySelector("#formularioContainer");
 
+// LLEVARLO AL FOOTER
 const contactoForm = document.querySelector("#contactoFooter")
 contactoForm.addEventListener("click", form)
 

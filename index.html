@@ -63,20 +63,38 @@
         </button>
       </section>
 
+      <!-- MODAL FORMULARIO -->
+      <div id="formularioContainer" class="form-container"></div>
+
+      <!-- MODAL CARRITO -->
+      <div id="carritoContainer" class="carrito-container">
+        <header class="carrito-header">
+          <p>tu carrito</p>
+          <button id="closeCarrito">
+            <i class="fa-solid fa-square-xmark" style="color: #fa0000"></i>
+          </button>
+        </header>
+        <!-- MENU DE CARRITO DONDE SE VEN LOS PRODUCTOS -->
+        <div class="carrito-main" id="carritoMain">
+          <div class="main-card" id="mainCard"></div>
+
+          <!-- FORMULARIO FINLAIZAR COMPRA -->
+          <div class="main-form" id="mainForm"></div>
+        </div>
+        <!-- FOOTER CARRITO -->
+        <div class="carrito-footer" id="carritoFooter"></div>
+      </div>
+
       <!-- CATEGORIAS -->
       <ul class="categorias-items">
-        <li id="almacenes">almacen</li>
-        <li>carniceria</li>
-        <li>frutas y verduras</li>
-        <li>limpieza</li>
+        <li id="almacen">almacen</li>
+        <li id="carniceria">carniceria</li>
+        <li id="verduleria">verduleria</li>
+        <li id="limpieza">limpieza</li>
       </ul>
     </header>
-    <!-- MODAL FORMULARIO -->
-    <div id="formularioContainer" class="form-container"></div>
 
-    <!-- MODAL CARRITO -->
-    <div id="carritoContainer" class="carrito-container"></div>
-
+    <!-- MAIN DE PAGINA -->
     <main class="content-main" id="content"></main>
 
     <!-- FOOTER -->
@@ -126,6 +144,7 @@
     <script src="./page/contacto.js"></script>
     <script src="./page/buscador.js"></script>
     <script src="./page/carrito.js"></script>
+    <script src="./page/carritoForm.js"></script>
     <script src="./page/categorias.js"></script>
   </body>
 </html>
