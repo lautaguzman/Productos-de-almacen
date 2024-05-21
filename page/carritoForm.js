@@ -34,8 +34,11 @@ function realizarPedido() {
     const nameCart = document.querySelector("#cartName").value
     const lastNameCart = document.querySelector("#cartLastName").value
     const emailCart = document.querySelector("#cartEmail").value
+    const validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nameCart === "" || lastNameCart === "" || emailCart === "") {
+
+
+    if (nameCart === "" || lastNameCart === "") {
         Swal.fire({
             position: 'center',
             icon: 'error',
@@ -46,20 +49,45 @@ function realizarPedido() {
         return;
     };
 
+    if (emailCart === "") {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Por favor, complete el campo de correo electrónico antes de enviar el formulario.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        return;
+
+    } else if (!validarEmail.test(emailCart)) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Por favor, ingrese un correo electrónico válido.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        return;
+    }
+
     Swal.fire({
         position: 'center',
         icon: 'success',
         title: `¡Pedido Realizado!`,
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
     });
 
     carritoContainer.style.display = "none"
     cantidadCarrito.style.display = "none"
 
-    carrito.length = 0; // Limpia el array
-    localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza localStorage
+    // Limpia el array
+    carrito.length = 0;
 
+    // Actualiza localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    mostrarProductos()
 }
 
 

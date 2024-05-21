@@ -1,12 +1,6 @@
 /*A SOLUCIONAR */
 //  BUSCADOR
 
-// TERMINAR ESTILOS CSS DEL CARRITO
-
-
-
-//AGREGAR FUNCION A LAS CATEGORIAS
-
 // AGREGAR FUNCIONES AL FOOTER
 
 // TODO "HACER LA PAGINA RESPONSIVE"
@@ -20,58 +14,60 @@ productosContainer.className = "productos-container"
 content.append(productosContainer)
 
 function mostrarProductos() {
-  setTimeout(() => {
-    fetch('./data.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach((producto) => {
-          let card = document.createElement("div");
-          card.className = "tarjeta";
-          card.innerHTML = `
+
+  productosContainer.innerHTML = "";
+
+  fetch('./data.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach((producto) => {
+        let card = document.createElement("div");
+        card.className = "tarjeta";
+        card.innerHTML = `
           <img src = "${producto.img}"/>       
           <h2>${producto.nombre}</h2>
           <p>${producto.marca}</p> 
           <p>${producto.medida}</p>
           <span>$${producto.precio}</span>
           `;
-          productosContainer.append(card);
+        productosContainer.append(card);
 
-          const añadirCarrito = document.createElement("button");
-          añadirCarrito.innerText = `Añadir al carrito`;
-          card.append(añadirCarrito);
+        const añadirCarrito = document.createElement("button");
+        añadirCarrito.innerText = `Añadir al carrito`;
+        card.append(añadirCarrito);
 
-          añadirCarrito.addEventListener("click", () => {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'PRODUCTO AGREGADO',
-              showConfirmButton: false,
-              timer: 1500
-            });
-
-            // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
-            const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
-
-            if (repeatProduct) {
-              carrito.forEach(prod => {
-                if (prod.id === producto.id) {
-                  prod.cantidad++;
-                }
-              });
-            } else {
-              carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
-            }
-
-            mostrarCantidadEnCarrito();
-            localSave();
+        añadirCarrito.addEventListener("click", () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'PRODUCTO AGREGADO',
+            showConfirmButton: false,
+            timer: 1500
           });
 
+          // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
+          const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
+
+          if (repeatProduct) {
+            carrito.forEach(prod => {
+              if (prod.id === producto.id) {
+                prod.cantidad++;
+              }
+            });
+          } else {
+            carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
+          }
+
+          mostrarCantidadEnCarrito();
+          localSave();
         });
-      })
-      .catch(error => {
-        alert('Error al obtener el archivo JSON', error);
+
       });
-  }, 2000);
+    })
+    .catch(error => {
+      alert('Error al obtener el archivo JSON', error);
+    });
+
 }
 
 

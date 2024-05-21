@@ -3,6 +3,8 @@ const carniceria = document.querySelector("#carniceria")
 const verduleria = document.querySelector("#verduleria")
 const limpieza = document.querySelector("#limpieza")
 
+const mostrarProd = document.querySelector("#mostrarProd")
+
 function filtrarCategorias(categoria) {
     fetch('./data.json')
         .then(response => response.json())
@@ -77,3 +79,5 @@ verduleria.addEventListener("click", () => {
 limpieza.addEventListener("click", () => {
     filtrarCategorias('limpieza')
 })
+
+mostrarProd.addEventListener("click", mostrarProductos)

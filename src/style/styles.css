@@ -507,7 +507,8 @@ header {
 
 .form-cart input {
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
     width: 50%;
     height: 50px;
 }

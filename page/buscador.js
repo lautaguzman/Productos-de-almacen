@@ -25,12 +25,7 @@ function closeBuscador() {
     // Limpia el campo de búsqueda y oculta el mensaje de no hay resultados
     buscador.value = "";
     noHayResultados.style.display = "none";
-
-    // Limpia el contenedor de productos y muestra los productos nuevamente
-    productosContainer.innerHTML = "";
-    mostrarProductos();
 }
-
 
 const noHayResultados = document.createElement("p")
 noHayResultados.className = "mensaje-busqueda"
