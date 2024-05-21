@@ -65,7 +65,7 @@ function realizarPedido() {
             icon: 'error',
             title: 'Por favor, ingrese un correo electrónico válido.',
             showConfirmButton: false,
-            timer: 3000
+            timer: 1000
         });
         return;
     }
@@ -87,7 +87,10 @@ function realizarPedido() {
     // Actualiza localStorage
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    mostrarProductos()
+    setTimeout(() => {
+        recargarPag()
+    }, 4000);
+
 }
 
 

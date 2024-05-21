@@ -1,9 +1,9 @@
+const todosItems = document.querySelector("#todosItems")
 const almacen = document.querySelector("#almacen")
 const carniceria = document.querySelector("#carniceria")
 const verduleria = document.querySelector("#verduleria")
 const limpieza = document.querySelector("#limpieza")
 
-const mostrarProd = document.querySelector("#mostrarProd")
 
 function filtrarCategorias(categoria) {
     fetch('./data.json')
@@ -64,6 +64,8 @@ function filtrarCategorias(categoria) {
 
 }
 
+todosItems.addEventListener("click", mostrarProductos)
+
 almacen.addEventListener("click", () => {
     filtrarCategorias('almacen');
 });
@@ -79,5 +81,3 @@ verduleria.addEventListener("click", () => {
 limpieza.addEventListener("click", () => {
     filtrarCategorias('limpieza')
 })
-
-mostrarProd.addEventListener("click", mostrarProductos)

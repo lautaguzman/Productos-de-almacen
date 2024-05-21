@@ -3,10 +3,11 @@
 // CAPTURAMOS ID PARA RECARGAR PAGINA DE INICIO
 const inicio = document.querySelector("#inicio");
 // RECARGAR PAGINA (EVENTO Y METODO)
-inicio.addEventListener("click", () => {
-    location.reload();
-});
+// inicio.addEventListener("click", () => {
+//     location.reload();
+// });
 
+inicio.addEventListener("click", recargarPag)
 
 const openItems = document.querySelector("#openItems")
 
@@ -21,3 +22,7 @@ openItems.addEventListener("click", () => {
 closeItems.addEventListener("click", () => {
     navItems.style.display = "none"
 })
+
+function recargarPag() {
+    location.reload()
+}
