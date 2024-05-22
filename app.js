@@ -1,41 +1,45 @@
-// SOLUCIONAR ERROR DE BUSQUEDA (NO HAY PROD Y NO RECARGA LOS PROD)
-// DARLE ESTILOS AL BUTTON DE CATEGORIA
-// AGREGAR FUNCIONES AL FOOTER
-
-// TODO "HACER LA PAGINA RESPONSIVE"
-
-//CAPTURAMOS ID  MAIN 
-const content = document.querySelector("#content")
+// CAPTURAMOS EL ELEMENTO CON EL ID 'content' DEL DOCUMENTO
+const content = document.querySelector("#content");
 
 // CONTENEDOR DE PRODUCTOS
-const productosContainer = document.createElement("div")
-productosContainer.className = "productos-container"
-content.append(productosContainer)
+const productosContainer = document.createElement("div");
+productosContainer.className = "productos-container";
+content.append(productosContainer);
 
+// FUNCIÓN PARA MOSTRAR LOS PRODUCTOS
 function mostrarProductos() {
 
+  // Limpiamos el contenedor de productos antes de agregar nuevos productos
   productosContainer.innerHTML = "";
 
+  // Realizamos una petición para obtener los datos del archivo JSON
   fetch('./data.json')
     .then(response => response.json())
     .then(data => {
+      // Iteramos sobre los datos para crear una tarjeta por cada producto
       data.forEach((producto) => {
+        // Creamos un elemento de tipo 'div' para representar la tarjeta del producto
         let card = document.createElement("div");
         card.className = "tarjeta";
+        // Insertamos el contenido HTML dentro de la tarjeta, utilizando los datos del producto
         card.innerHTML = `
-          <img src = "${producto.img}"/>       
+          <img src="${producto.img}"/>       
           <h2>${producto.nombre}</h2>
           <p>${producto.marca}</p> 
           <p>${producto.medida}</p>
           <span>$${producto.precio}</span>
-          `;
+        `;
+        // Agregamos la tarjeta al contenedor de productos
         productosContainer.append(card);
 
+        // Creamos un botón para añadir el producto al carrito
         const añadirCarrito = document.createElement("button");
         añadirCarrito.innerText = `Añadir al carrito`;
         card.append(añadirCarrito);
 
+        // Agregamos un evento al botón para manejar la acción de añadir al carrito
         añadirCarrito.addEventListener("click", () => {
+          // Mostramos una notificación de éxito utilizando la librería SweetAlert
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -44,19 +48,21 @@ function mostrarProductos() {
             timer: 1500
           });
 
-          // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
+          // Verificamos si el producto ya está en el carrito
           const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
 
+          // Si el producto ya está en el carrito, aumentamos su cantidad
           if (repeatProduct) {
             carrito.forEach(prod => {
               if (prod.id === producto.id) {
                 prod.cantidad++;
               }
             });
-          } else {
+          } else { // Si el producto no está en el carrito, lo agregamos al carrito
             carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
           }
 
+          // Actualizamos la cantidad de productos en el carrito y guardamos en el almacenamiento local
           mostrarCantidadEnCarrito();
           localSave();
         });
@@ -64,32 +70,11 @@ function mostrarProductos() {
       });
     })
     .catch(error => {
+      // En caso de error en la obtención del archivo JSON, mostramos una alerta
       alert('Error al obtener el archivo JSON', error);
     });
 
-}
+};
 
-
-// Llamamos a la función para mostrar los productos al cargar la página despues de 2 segundos
-mostrarProductos();
-
-// FUNCIONES DEL FOOTER
-
-// const gitHub = document.querySelector("#github")
-// function abrirGitHub() {
-//   window.open('https://github.com/lautaguzman', '_blank');
-// }
-// gitHub.addEventListener("click", abrirGitHub)
-
-
-// const instagram = document.querySelector("#instagram")
-// function abrirInstagram() {
-//   window.open('https://instagram.com/lautaguzman21?igshid=NzZlODBkYWE4Ng==', '_blank');
-// }
-// instagram.addEventListener("click", abrirInstagram)
-
-// const linkedin = document.querySelector("#linkedin")
-// function abrirLinkedin() {
-//   window.open('https://www.linkedin.com/in/lautaro-guzman-8841431b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank');
-// }
-// linkedin.addEventListener("click", abrirLinkedin)
+// Llamamos a la función para mostrar los productos.
+mostrarProductos()

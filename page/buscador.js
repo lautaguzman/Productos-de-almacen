@@ -1,42 +1,48 @@
-// ABRIR BUSCADOR
+// Capturamos el elemento con el ID 'lupa' del documento
 const lupa = document.querySelector("#lupa");
+
 // Agregar un evento de clic al ícono de búsqueda para mostrar el contenedor de búsqueda
 lupa.addEventListener("click", () => {
     searchContainer.style.display = "flex";
 });
 
-// CONTENEDOR DE BUSCADOR
+// Capturamos el contenedor de búsqueda
 const searchContainer = document.querySelector("#searchContainer");
 
-// CAPTURO ID DE INPUT DE BUSQUEDA
+// Capturamos el input de búsqueda
 const buscador = document.querySelector("#inputSearch");
 
-
-// BOTON PARA CERRAR BUSCADOR
+// Capturamos el botón para cerrar el buscador
 const closeSearch = document.querySelector("#closeSearch");
+
 // Agregar un evento de clic al botón de cerrar búsqueda para ocultar el contenedor de búsqueda y limpiar el campo de búsqueda
-closeSearch.addEventListener("click", closeBuscador)
+closeSearch.addEventListener("click", closeBuscador);
 
-
+// Función para cerrar el buscador
 function closeBuscador() {
-    // Oculta el contenedor de búsqueda
+    // Si el campo de búsqueda no está vacío al cerrar el buscador
+    if (buscador.value.trim() !== "") {
+        // Mostrar los productos
+        mostrarProductos();
+    }
+
+    // Ocultar el contenedor de búsqueda
     searchContainer.style.display = "none";
 
-    // Limpia el campo de búsqueda y oculta el mensaje de no hay resultados
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
     buscador.value = "";
     noHayResultados.style.display = "none";
 }
 
-const noHayResultados = document.createElement("p")
-noHayResultados.className = "mensaje-busqueda"
-noHayResultados.innerText = "no hay resultados para tu busqueda"
-
-content.append(noHayResultados)
+// Crear un elemento para mostrar un mensaje cuando no hay resultados de búsqueda
+const noHayResultados = document.createElement("p");
+noHayResultados.className = "mensaje-busqueda";
+noHayResultados.innerText = "No hay resultados para tu búsqueda";
+content.append(noHayResultados);
 
 // Función para buscar productos
 const buscarProd = () => {
-
-    // CAPTURAMOS y ALMACENAMOS EL VALOR DEL INPUT EN ESTA CONSTANTE Y LO TRANSFORMO EN MINUSCULA CON UN METODO
+    // Capturamos y almacenamos el valor del input en esta constante y lo transformamos a minúscula
     const terminoBusqueda = buscador.value.toLowerCase();
 
     // Realizar una solicitud para obtener los datos del archivo JSON
@@ -58,18 +64,20 @@ const buscarProd = () => {
                     let card = document.createElement("div");
                     card.className = "tarjeta";
                     card.innerHTML = `
-                    <img src = "${producto.img}"/>       
-                    <h2>${producto.nombre}</h2>
-                    <p>${producto.marca}</p> 
-                    <p>${producto.medida}</p>
-                    <span>$${producto.precio}</span>
+                        <img src="${producto.img}"/>       
+                        <h2>${producto.nombre}</h2>
+                        <p>${producto.marca}</p> 
+                        <p>${producto.medida}</p>
+                        <span>$${producto.precio}</span>
                     `;
                     productosContainer.append(card);
 
+                    // Crear un botón para añadir el producto al carrito
                     const añadirCarrito = document.createElement("button");
                     añadirCarrito.innerText = `Añadir al carrito`;
                     card.append(añadirCarrito);
 
+                    // Agregar un evento al botón para manejar la acción de añadir al carrito
                     añadirCarrito.addEventListener("click", () => {
                         Swal.fire({
                             position: 'center',
@@ -79,13 +87,14 @@ const buscarProd = () => {
                             timer: 1500
                         });
 
-                        // FUNCION PARA QUE NO SE REPITA UN PRODUCTO EN EL CARRITO -- PERO QUE SE REFLEJE EN LA CANTIDAD
+                        // Verificar si el producto ya está en el carrito y actualizar su cantidad si es así
                         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
 
                         repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
                             :
                             carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
 
+                        // Actualizar la cantidad de productos en el carrito y guardar en el almacenamiento local
                         mostrarCantidadEnCarrito();
                         localSave();
                     });
@@ -104,5 +113,6 @@ const buscarProd = () => {
 
 // Agregar un evento de entrada al campo de búsqueda para buscar productos
 buscador.addEventListener("input", buscarProd);
+
 
 

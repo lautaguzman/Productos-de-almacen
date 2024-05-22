@@ -1,43 +1,50 @@
 function formCompra() {
-    const mainForm = document.querySelector("#mainForm")
+    // Capturamos el elemento con el ID 'mainForm' del documento
+    const mainForm = document.querySelector("#mainForm");
 
+    // Limpiamos el contenido previo del formulario
     mainForm.innerHTML = "";
 
-    const formTitle = document.createElement("h5")
-    formTitle.innerHTML = `finalizar pedido`
-    mainForm.append(formTitle)
+    // Creamos un título para el formulario
+    const formTitle = document.createElement("h5");
+    formTitle.innerHTML = `Finalizar Pedido`;
+    mainForm.append(formTitle);
 
-    const formCart = document.createElement("form")
-    formCart.className = "form-cart"
-    mainForm.append(formCart)
+    // Creamos un formulario para la compra
+    const formCart = document.createElement("form");
+    formCart.className = "form-cart";
+    mainForm.append(formCart);
 
-    const cartName = document.createElement("input")
-    cartName.type = "text"
-    cartName.placeholder = "ingresa tu nombre"
-    cartName.id = "cartName"
-    formCart.append(cartName)
+    // Creamos campos de entrada para el nombre, apellido y correo electrónico
+    const cartName = document.createElement("input");
+    cartName.type = "text";
+    cartName.placeholder = "Ingresa tu nombre";
+    cartName.id = "cartName";
+    formCart.append(cartName);
 
-    const cartLastName = document.createElement("input")
-    cartLastName.type = "text"
-    cartLastName.placeholder = "ingresa tu apellido"
-    cartLastName.id = "cartLastName"
-    formCart.append(cartLastName)
+    const cartLastName = document.createElement("input");
+    cartLastName.type = "text";
+    cartLastName.placeholder = "Ingresa tu apellido";
+    cartLastName.id = "cartLastName";
+    formCart.append(cartLastName);
 
-    const cartEmail = document.createElement("input")
-    cartEmail.type = "email"
-    cartEmail.placeholder = "ingresa tu email"
-    cartEmail.id = "cartEmail"
-    formCart.append(cartEmail)
+    const cartEmail = document.createElement("input");
+    cartEmail.type = "email";
+    cartEmail.placeholder = "Ingresa tu email";
+    cartEmail.id = "cartEmail";
+    formCart.append(cartEmail);
 }
 
 function realizarPedido() {
-    const nameCart = document.querySelector("#cartName").value
-    const lastNameCart = document.querySelector("#cartLastName").value
-    const emailCart = document.querySelector("#cartEmail").value
+    // Capturamos los valores de los campos de nombre, apellido y correo electrónico
+    const nameCart = document.querySelector("#cartName").value;
+    const lastNameCart = document.querySelector("#cartLastName").value;
+    const emailCart = document.querySelector("#cartEmail").value;
+
+    // Expresión regular para validar el formato del correo electrónico
     const validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
-
+    // Validación de los campos del formulario
     if (nameCart === "" || lastNameCart === "") {
         Swal.fire({
             position: 'center',
@@ -70,6 +77,7 @@ function realizarPedido() {
         return;
     }
 
+    // Si se pasa la validación, se muestra un mensaje de éxito
     Swal.fire({
         position: 'center',
         icon: 'success',
@@ -78,20 +86,118 @@ function realizarPedido() {
         timer: 3000
     });
 
+    // Ocultamos el contenedor del carrito y la cantidad en el carrito
     carritoContainer.style.display = "none"
     cantidadCarrito.style.display = "none"
 
-    // Limpia el array
+    // Limpiamos el array 'carrito'
     carrito.length = 0;
 
-    // Actualiza localStorage
+    // Actualizamos el almacenamiento local
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
+    // Recargamos la página después de un cierto tiempo
     setTimeout(() => {
         recargarPag()
     }, 4000);
-
 }
+
+
+
+// function formCompra() {
+//     const mainForm = document.querySelector("#mainForm")
+
+//     mainForm.innerHTML = "";
+
+//     const formTitle = document.createElement("h5")
+//     formTitle.innerHTML = `finalizar pedido`
+//     mainForm.append(formTitle)
+
+//     const formCart = document.createElement("form")
+//     formCart.className = "form-cart"
+//     mainForm.append(formCart)
+
+//     const cartName = document.createElement("input")
+//     cartName.type = "text"
+//     cartName.placeholder = "ingresa tu nombre"
+//     cartName.id = "cartName"
+//     formCart.append(cartName)
+
+//     const cartLastName = document.createElement("input")
+//     cartLastName.type = "text"
+//     cartLastName.placeholder = "ingresa tu apellido"
+//     cartLastName.id = "cartLastName"
+//     formCart.append(cartLastName)
+
+//     const cartEmail = document.createElement("input")
+//     cartEmail.type = "email"
+//     cartEmail.placeholder = "ingresa tu email"
+//     cartEmail.id = "cartEmail"
+//     formCart.append(cartEmail)
+// }
+
+// function realizarPedido() {
+//     const nameCart = document.querySelector("#cartName").value
+//     const lastNameCart = document.querySelector("#cartLastName").value
+//     const emailCart = document.querySelector("#cartEmail").value
+//     const validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+//     if (nameCart === "" || lastNameCart === "") {
+//         Swal.fire({
+//             position: 'center',
+//             icon: 'error',
+//             title: 'Por favor, complete todos los campos para realizar el pedido',
+//             showConfirmButton: false,
+//             timer: 3000
+//         });
+//         return;
+//     };
+
+//     if (emailCart === "") {
+//         Swal.fire({
+//             position: 'center',
+//             icon: 'error',
+//             title: 'Por favor, complete el campo de correo electrónico antes de enviar el formulario.',
+//             showConfirmButton: false,
+//             timer: 3000
+//         });
+//         return;
+
+//     } else if (!validarEmail.test(emailCart)) {
+//         Swal.fire({
+//             position: 'center',
+//             icon: 'error',
+//             title: 'Por favor, ingrese un correo electrónico válido.',
+//             showConfirmButton: false,
+//             timer: 1000
+//         });
+//         return;
+//     }
+
+//     Swal.fire({
+//         position: 'center',
+//         icon: 'success',
+//         title: `¡Pedido Realizado!`,
+//         showConfirmButton: false,
+//         timer: 3000
+//     });
+
+//     carritoContainer.style.display = "none"
+//     cantidadCarrito.style.display = "none"
+
+//     // Limpia el array
+//     carrito.length = 0;
+
+//     // Actualiza localStorage
+//     localStorage.setItem("carrito", JSON.stringify(carrito));
+
+//     setTimeout(() => {
+//         recargarPag()
+//     }, 4000);
+
+// }
 
 
 
