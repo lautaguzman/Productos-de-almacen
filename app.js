@@ -43,7 +43,7 @@ function mostrarProductos() {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'PRODUCTO AGREGADO',
+            title: '¡Producto Agregado!',
             showConfirmButton: false,
             timer: 1500
           });
@@ -51,11 +51,17 @@ function mostrarProductos() {
           // Verificamos si el producto ya está en el carrito
           const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
 
-          // Si el producto ya está en el carrito, aumentamos su cantidad
+          // Si el producto ya está en el carrito, no aumentamos su cantidad
           if (repeatProduct) {
             carrito.forEach(prod => {
               if (prod.id === producto.id) {
-                prod.cantidad++;
+                Swal.fire({
+                  position: 'center',
+                  icon: 'error',
+                  title: '¡Tu producto ya se encuentra en el carrito!',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
               }
             });
           } else { // Si el producto no está en el carrito, lo agregamos al carrito

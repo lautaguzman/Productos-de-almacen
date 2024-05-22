@@ -75,7 +75,7 @@ const miCarrito = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'warning',
-                        title: 'No puedes agregar más de 10 productos',
+                        title: 'Sin Stock',
                         showConfirmButton: false,
                         timer: 2000
                     });
