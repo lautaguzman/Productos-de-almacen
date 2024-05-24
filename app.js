@@ -1,4 +1,4 @@
-// CAPTURAMOS EL ELEMENTO CON EL ID 'content' DEL DOCUMENTO
+// CONTENEDOR MAIN DE LA PAGINA
 const content = document.querySelector("#content");
 
 // CONTENEDOR DE PRODUCTOS
@@ -8,7 +8,6 @@ content.append(productosContainer);
 
 // FUNCIÓN PARA MOSTRAR LOS PRODUCTOS
 function mostrarProductos() {
-
   // Limpiamos el contenedor de productos antes de agregar nuevos productos
   productosContainer.innerHTML = "";
 
@@ -18,6 +17,7 @@ function mostrarProductos() {
     .then(data => {
       // Iteramos sobre los datos para crear una tarjeta por cada producto
       data.forEach((producto) => {
+
         // Creamos un elemento de tipo 'div' para representar la tarjeta del producto
         let card = document.createElement("div");
         card.className = "tarjeta";

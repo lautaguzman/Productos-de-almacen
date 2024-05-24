@@ -82,17 +82,30 @@ const buscarProd = () => {
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'PRODUCTO AGREGADO',
+                            title: '¡Producto Agregado!',
                             showConfirmButton: false,
                             timer: 1500
-                        });
+                          });
 
                         // Verificar si el producto ya está en el carrito y actualizar su cantidad si es así
                         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)
 
-                        repeatProduct ? carrito.forEach(prod => prod.id === producto.id && prod.cantidad++)
-                            :
+                        // Si el producto ya está en el carrito, no aumentamos su cantidad
+                        if (repeatProduct) {
+                            carrito.forEach(prod => {
+                                if (prod.id === producto.id) {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'error',
+                                        title: '¡Tu producto ya se encuentra en el carrito!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                }
+                            });
+                        } else { // Si el producto no está en el carrito, lo agregamos al carrito
                             carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
+                        }
 
                         // Actualizar la cantidad de productos en el carrito y guardar en el almacenamiento local
                         mostrarCantidadEnCarrito();

@@ -39,7 +39,7 @@ function filtrarCategorias(categoria) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'PRODUCTO AGREGADO',
+                        title: '¡Producto Agregado!',
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -47,18 +47,25 @@ function filtrarCategorias(categoria) {
                     // Verificamos si el producto ya está en el carrito y actualizamos su cantidad si es así
                     const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
 
+                    // Si el producto ya está en el carrito, no aumentamos su cantidad
                     if (repeatProduct) {
                         carrito.forEach(prod => {
                             if (prod.id === producto.id) {
-                                prod.cantidad++;
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'error',
+                                    title: '¡Tu producto ya se encuentra en el carrito!',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
                             }
                         });
-                    } else {
+                    } else { // Si el producto no está en el carrito, lo agregamos al carrito
                         carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
                     }
-
-                    // Actualizamos la cantidad de productos en el carrito y guardamos en el almacenamiento local
+                    // Actualizamos la cantidad de productos en el carrito.
                     mostrarCantidadEnCarrito();
+                    // Guardamos en el almacenamiento local
                     localSave();
                 });
             });
@@ -69,22 +76,29 @@ function filtrarCategorias(categoria) {
         });
 }
 
-// Agregamos eventos de clic a los elementos de filtrado por categoría
-todosItems.addEventListener("click", mostrarProductos);
+// Agregamos eventos de click a los elementos de filtrado por categoría
+todosItems.addEventListener("click", () => {
+    closeBuscador()
+    mostrarProductos();
+});
 
 almacen.addEventListener("click", () => {
+    closeBuscador()
     filtrarCategorias('almacen');
 });
 
 carniceria.addEventListener("click", () => {
+    closeBuscador();
     filtrarCategorias('carniceria');
 });
 
 verduleria.addEventListener("click", () => {
+    closeBuscador();
     filtrarCategorias('verduleria');
 });
 
 limpieza.addEventListener("click", () => {
+    closeBuscador();
     filtrarCategorias('limpieza');
 });
 
