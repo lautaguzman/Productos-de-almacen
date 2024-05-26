@@ -83,14 +83,13 @@ function filtrarCategorias(categoria) {
 
 // Agregamos eventos de click a los elementos de filtrado por categoría
 todosItems.addEventListener("click", () => {
-    // // ocultamos contenedor de buscador
-    // searchContainer.style.display = "none";
-    // // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
-    // buscador.value = "";
-    // noHayResultados.style.display = "none";
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
 
-    // mostrarProductos();
-    alert("en teoria funciona")
+    mostrarProductos();
 });
 
 almacen.addEventListener("click", () => {
