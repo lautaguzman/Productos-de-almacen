@@ -20,11 +20,10 @@ closeSearch.addEventListener("click", closeBuscador);
 
 // Función para cerrar el buscador
 function closeBuscador() {
-    // Si el campo de búsqueda no está vacío al cerrar el buscador
+    // // Si el campo de búsqueda no está vacío al cerrar el buscador muestra los productos
     if (buscador.value.trim() !== "") {
-        // Mostrar los productos
         mostrarProductos();
-    }
+    };
 
     // Ocultar el contenedor de búsqueda
     searchContainer.style.display = "none";
@@ -85,7 +84,7 @@ const buscarProd = () => {
                             title: '¡Producto Agregado!',
                             showConfirmButton: false,
                             timer: 1500
-                          });
+                        });
 
                         // Verificar si el producto ya está en el carrito y actualizar su cantidad si es así
                         const repeatProduct = carrito.some((repeat) => repeat.id === producto.id)

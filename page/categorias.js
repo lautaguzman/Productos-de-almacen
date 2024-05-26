@@ -18,8 +18,10 @@ function filtrarCategorias(categoria) {
 
             // Creamos una tarjeta de producto para cada producto filtrado
             categoriaFiltrada.forEach(producto => {
+                // Creamos un elemento de tipo 'div' para representar la tarjeta del producto
                 let card = document.createElement("div");
                 card.className = "tarjeta";
+                // Insertamos el contenido HTML dentro de la tarjeta, utilizando los datos del producto
                 card.innerHTML = `
                     <img src="${producto.img}"/>       
                     <h2>${producto.nombre}</h2>
@@ -27,6 +29,7 @@ function filtrarCategorias(categoria) {
                     <p>${producto.medida}</p>
                     <span>$${producto.precio}</span>
                 `;
+                // Agregamos la tarjeta al contenedor de productos
                 productosContainer.append(card);
 
                 // Creamos un botón para añadir el producto al carrito
@@ -36,6 +39,7 @@ function filtrarCategorias(categoria) {
 
                 // Agregamos un evento al botón para manejar la acción de añadir al carrito
                 añadirCarrito.addEventListener("click", () => {
+                    // Mostramos una notificación de éxito utilizando la librería SweetAlert
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -44,7 +48,7 @@ function filtrarCategorias(categoria) {
                         timer: 1500
                     });
 
-                    // Verificamos si el producto ya está en el carrito y actualizamos su cantidad si es así
+                    // Verificamos si el producto ya está en el carrito
                     const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
 
                     // Si el producto ya está en el carrito, no aumentamos su cantidad
@@ -63,11 +67,12 @@ function filtrarCategorias(categoria) {
                     } else { // Si el producto no está en el carrito, lo agregamos al carrito
                         carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
                     }
-                    // Actualizamos la cantidad de productos en el carrito.
+
+                    // Actualizamos la cantidad de productos en el carrito y guardamos en el almacenamiento local
                     mostrarCantidadEnCarrito();
-                    // Guardamos en el almacenamiento local
                     localSave();
                 });
+
             });
         })
         .catch(error => {
@@ -78,27 +83,52 @@ function filtrarCategorias(categoria) {
 
 // Agregamos eventos de click a los elementos de filtrado por categoría
 todosItems.addEventListener("click", () => {
-    closeBuscador()
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
     mostrarProductos();
 });
 
 almacen.addEventListener("click", () => {
-    closeBuscador()
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
     filtrarCategorias('almacen');
 });
 
 carniceria.addEventListener("click", () => {
-    closeBuscador();
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
     filtrarCategorias('carniceria');
 });
 
 verduleria.addEventListener("click", () => {
-    closeBuscador();
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
     filtrarCategorias('verduleria');
 });
 
 limpieza.addEventListener("click", () => {
-    closeBuscador();
+    // ocultamos contenedor de buscador
+    searchContainer.style.display = "none";
+    // Limpiar el campo de búsqueda y ocultar el mensaje de "no hay resultados"
+    buscador.value = "";
+    noHayResultados.style.display = "none";
+
     filtrarCategorias('limpieza');
 });
 
