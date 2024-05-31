@@ -18,7 +18,7 @@ const miCarrito = () => {
         Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'CARRITO VACIO',
+            title: '¡Carrito Vacio!',
             showConfirmButton: false,
             timer: 2000
         });
@@ -106,7 +106,7 @@ const miCarrito = () => {
         // FUNCION DE ORDEN SUPERIOR PARA CALCULAR EL TOTAL DE LA COMPRA
         const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
         const totalFormateado = total.toLocaleString();
-        totalCompra.innerHTML = `total: ${totalFormateado}`;
+        totalCompra.innerHTML = `total $${totalFormateado}`;
     }
     // FINALIZAR PEDIDO
     const buttonFooter = document.createElement("button");

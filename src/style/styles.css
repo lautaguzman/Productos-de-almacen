@@ -7,7 +7,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 99, 92);
+    align-items: center;
     width: 100%;
 }
 
@@ -18,10 +18,11 @@ body::-webkit-scrollbar {
 header {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    background-color: rgb(0, 99, 92);
     width: 100%;
-    height: 250px;
+    height: 170px;
 }
 
 /* NAV */
@@ -112,7 +113,6 @@ header {
     height: 20px;
 }
 
-
 /* BUSCADOR */
 .search-container {
     display: none;
@@ -157,56 +157,26 @@ header {
     font-size: 30px;
 }
 
-.no-resultados {
+/* MENSAJE BUSCADOR */
+.mensaje-busqueda {
     display: none;
     justify-content: center;
     align-items: center;
+    position: absolute;
     background-color: red;
-    margin: 10px;
-    width: 50%;
-    height: 70px;
-}
-
-.no-resultados p {
     color: white;
+    border-radius: 10px;
     text-transform: uppercase;
+    font-size: 1rem;
+    width: 30%;
+    height: 100px;
 }
 
-/* CATEGORIAS  */
-
-.categorias-items {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-}
-
-.categorias-items li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    color: rgb(0, 99, 92);
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 20px;
-    list-style-type: none;
-    width: 10%;
-    height: 70%;
-}
-
-.categorias-items li:hover {
-    background: none;
-    border: solid 2px white;
-    color: white;
-}
-
-/* FORMULARIO */
+/* FORMULARIO DE CONTACTO */
 .form-container {
     display: none;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: rgba(22, 21, 21, 0.801);
     position: fixed;
@@ -263,10 +233,9 @@ header {
 }
 
 .formulario input {
-    background-color: transparent;
-    color: black;
+    background-color: white;
+    color: rgb(0, 99, 92);
     border: none;
-    border-bottom: 2px solid white;
     text-align: center;
     text-transform: uppercase;
     font-weight: 600;
@@ -280,7 +249,7 @@ header {
 }
 
 .formulario input::placeholder {
-    color: white;
+    color: rgb(0, 99, 92);
     font-family: inherit;
     font-weight: bold;
     text-transform: uppercase;
@@ -327,7 +296,6 @@ header {
 .button-form button:active {
     transform: translateY(4px);
 }
-
 
 /* CONTENEDOR CARRITO */
 .carrito-container {
@@ -469,13 +437,11 @@ header {
     height: 80%;
 }
 
-
 .delete-prod {
     cursor: pointer;
 }
 
 /*FORM CART */
-
 .main-form {
     display: flex;
     flex-direction: column;
@@ -560,30 +526,56 @@ header {
     height: 90%;
 }
 
+/* CATEGORIAS  */
+.categorias-container {
+    border: solid 2px rgb(0, 99, 92);
+    margin-top: 15px;
+    border-radius: 10px;
+    width: 90%;
+    height: 50px;
+}
+
+.categorias-items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.categorias-items li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: rgb(0, 99, 92);
+    border: solid 2px rgb(0, 99, 92);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 20px;
+    list-style-type: none;
+    width: 10%;
+    height: 70%;
+}
+
+.categorias-items li:hover {
+    background-color: rgb(0, 99, 92);
+    border: solid 2px white;
+    color: white;
+}
+
 /* MAIN */
 .content-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgba(0, 99, 92, 0.8);
+    margin: 30px 0 30px 0;
     width: 100%;
     height: auto;
-    min-height: 350px;
-}
-
-/* MENSAJE BUSCADOR */
-.mensaje-busqueda {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: red;
-    color: white;
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-size: 1rem;
-    width: 30%;
-    height: 100px;
+    min-height: 320px;
+    border: solid 2px black;
 }
 
 /* CONTENEDOR DE MIS PRODUCTOS */
@@ -593,10 +585,10 @@ header {
     flex-wrap: wrap;
     gap: 20px;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     width: 90%;
     height: auto;
-    min-height: 350px;
+    min-height: 320px;
 }
 
 /* PRODUCTOS */
@@ -605,11 +597,13 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
     border: solid 3px rgb(0, 99, 92);
     position: relative;
     border-radius: 20px;
     width: 20%;
     height: 320px;
+    margin-bottom: 55px;
 }
 
 .tarjeta img {
@@ -670,18 +664,18 @@ header {
 
 .tarjeta button:hover {
     border: solid 2px rgb(0, 99, 92);
-    background: none;
+    background: white;
     color: rgb(0, 99, 92);
 }
 
 /* FOOTER */
-
 .footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 200px;
+    background-color: rgb(0, 99, 92);
     width: 100%;
+    height: 200px;
 }
 
 .footer-contacto {
@@ -707,6 +701,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     width: 40px;
     height: 40px;
 }
@@ -742,6 +737,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     width: 40px;
     height: 40px;
 }
@@ -758,18 +754,20 @@ header {
     background-color: #333333;
 }
 
-/* MEDIA QUERY PARA TABLET */
-@media (min-width: 577px) and (max-width: 991px) {}
-
-
 /* MEDIA QUERY PARA DISPOSITIVO MOVIL */
 @media (min-width: 320px) and (max-width: 576px) {
 
     /* MENU DE NAVEGACION */
-    /* .nav {
+    .nav {
         display: flex;
         justify-content: space-between;
-        padding: 10px;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+    }
+
+    .nav-inicio {
+        margin-left: 5px;
     }
 
     .nav-inicio h3 {
@@ -778,31 +776,50 @@ header {
 
     .open-items {
         display: flex;
+        margin-right: 5px;
     }
 
     .nav-items {
         display: none;
     }
 
-    .nav-items span {
+    /* CONTENEDOR DE MIS PRODUCTOS */
+    .productos-container {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+
     }
 
-    main {
-        display: none;
+    .tarjeta {
+        width: 90%;
+    }
+}
+
+/* MEDIA QUERY PARA TABLET */
+@media (min-width: 577px) and (max-width: 991px) {
+
+    /* FORMULARIO DE CONTACTO */
+    .form-header {
+        width: 90%;
+    }
+
+    .formulario {
+        width: 90%;
+        height: 70%;
+    }
+
+    /* MENSAJE BUSCADOR */
+    .mensaje-busqueda {
+        width: 50%;
+    }
+
+    .productos-container {
+        border: solid 2px green;
+
+    }
+
+    /* .content-main {
+        min-height: 730px;
     } */
-
 }
-
-/* PROD CARRITO */
-/* .prod-carrito {
-    margin: 5px;
-    width: 50%;
-    height: 90%;
-    overflow: auto;
-    border: solid 2px green;
-}
-
-.prod-carrito::-webkit-scrollbar {
-    display: none;
-} */
