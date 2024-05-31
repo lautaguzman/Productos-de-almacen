@@ -1,14 +1,14 @@
-<!-- PRODUCTOS DE ALMACEN-->
+- PRODUCTOS DE ALMACEN
 
 Este proyecto es una tienda de productos de almacén desarrollada con tecnologías web. Permite gestionar y visualizar productos disponibles para la venta.
 
- <!-- CARACTERISTICAS -->
+- CARACTERISTICAS
 
 Visualización de Productos: Lista de productos con detalles como nombre, precio y descripción.
 Gestión de Productos: Añadir, editar y eliminar productos.
 Interfaz de Usuario: Diseño intuitivo y amigable para el usuario.
 
- <!-- FUNCIONALIDAD -->
+- FUNCIONALIDAD
 
 Listado de Producto: Muestra todos los productos disponibles en el almacén con sus detalles.
 
@@ -20,7 +20,7 @@ Eliminar Producto: Permite eliminar productos del almacén.
 
 Filtrado y Búsqueda: Funcionalidad para buscar productos por nombre o filtrar por categorías.
 
-<!--  TECNOLOGIA UTILIZADA -->
+- TECNOLOGIA UTILIZADA
 
 HTML: Estructura de la página web.
 
@@ -28,7 +28,7 @@ CSS: Estilos y diseño de la interfaz.
 
 JavaScript: Funcionalidad y lógica de la aplicación.
 
-<!-- ESTRUCTURA-->
+- ESTRUCTURA
 
 - `index.html`: Página principal de la tienda.
 - `app.js`: Archivo principal de JavaScript para la lógica de la aplicación.
