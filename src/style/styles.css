@@ -18,11 +18,11 @@ body::-webkit-scrollbar {
 header {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     background-color: rgb(0, 99, 92);
     width: 100%;
-    height: 170px;
+    height: 150px;
 }
 
 /* NAV */
@@ -48,10 +48,6 @@ header {
     color: white;
     font-family: sans-serif;
     text-transform: uppercase;
-}
-
-.open-items {
-    display: none;
 }
 
 .nav-items {
@@ -118,7 +114,10 @@ header {
     display: none;
     justify-content: center;
     align-items: center;
+    background-color: rgb(0, 99, 92);
+    border-radius: 10px;
     position: relative;
+    margin-top: 10px;
     width: 50%;
     height: 50px;
 }
@@ -192,6 +191,7 @@ header {
     align-items: center;
     background-color: rgb(0, 99, 92);
     border-radius: 20px 20px 0 0;
+    position: relative;
     margin-top: 5px;
     width: 50%;
     height: 10%;
@@ -211,13 +211,13 @@ header {
     position: absolute;
     background-color: white;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    margin-left: 45%;
+    width: 20px;
+    height: 20px;
+    margin-left: 95%;
 }
 
 .close-form i {
-    font-size: 60px;
+    font-size: 30px;
 }
 
 .formulario {
@@ -575,7 +575,6 @@ header {
     width: 100%;
     height: auto;
     min-height: 320px;
-    border: solid 2px black;
 }
 
 /* CONTENEDOR DE MIS PRODUCTOS */
@@ -583,7 +582,7 @@ header {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 60px;
     padding: 10px;
     margin: 5px;
     width: 90%;
@@ -603,7 +602,6 @@ header {
     border-radius: 20px;
     width: 20%;
     height: 320px;
-    margin-bottom: 55px;
 }
 
 .tarjeta img {
@@ -757,30 +755,35 @@ header {
 /* MEDIA QUERY PARA DISPOSITIVO MOVIL */
 @media (min-width: 320px) and (max-width: 576px) {
 
-    /* MENU DE NAVEGACION */
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 100px;
-    }
-
-    .nav-inicio {
-        margin-left: 5px;
-    }
-
+    /* NAV */
     .nav-inicio h3 {
         display: none;
     }
 
-    .open-items {
-        display: flex;
-        margin-right: 5px;
+    /* BUSCADOR */
+    .search-container {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 99, 92);
+        border-radius: 10px;
+        position: relative;
+        margin-top: 10px;
+        width: 80%;
+        height: 50px;
     }
 
-    .nav-items {
-        display: none;
+    /* FORMULARIO */
+    .form-header {
+        width: 95%;
+    }
+
+    .close-form {
+        margin-left: 90%;
+    }
+
+    .formulario {
+        width: 95%;
     }
 
     /* CONTENEDOR DE MIS PRODUCTOS */
@@ -792,8 +795,10 @@ header {
     }
 
     .tarjeta {
-        width: 90%;
+        width: 70%;
     }
+
+
 }
 
 /* MEDIA QUERY PARA TABLET */
