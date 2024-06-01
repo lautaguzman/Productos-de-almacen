@@ -124,7 +124,7 @@ header {
 
 .search-container input {
     text-align: center;
-    border-radius: 50px;
+    border-radius: 10px;
     border: none;
     width: 85%;
     height: 40px;
@@ -147,7 +147,7 @@ header {
     background-color: white;
     position: absolute;
     cursor: pointer;
-    margin-left: 93%;
+    margin-left: 80%;
     width: 20px;
     height: 20px;
 }
@@ -784,18 +784,22 @@ header {
         border-radius: 20px;
     }
 
-
     /* BUSCADOR */
     .search-container {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(0, 99, 92);
-        border-radius: 10px;
-        position: relative;
-        margin-top: 10px;
         width: 80%;
-        height: 50px;
+    }
+
+    .search-container input {
+        width: 90%;
+    }
+
+    .close-search {
+        width: 10px;
+        height: 10px;
+        margin-left: 80%;
+    }
+    .close-search i{
+        font-size: 20px;
     }
 
     /* FORMULARIO */
