@@ -144,16 +144,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: red;
+    border: none;
     position: absolute;
     cursor: pointer;
     margin-left: 80%;
-    width: 20px;
-    height: 20px;
-}
-
-.close-search i {
-    font-size: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 /* MENSAJE BUSCADOR */
@@ -209,15 +206,12 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    background-color: white;
+    background-color: red;
+    border: none;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     margin-left: 95%;
-}
-
-.close-form i {
-    font-size: 30px;
 }
 
 .formulario {
@@ -317,6 +311,7 @@ header {
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 99, 92);
+    position: relative;
     border-radius: 20px;
     width: 50%;
     height: 10%;
@@ -334,15 +329,12 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
-    background-color: white;
+    background-color: red;
+    border: none;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    margin-left: 45%;
-}
-
-.carrito-header button i {
-    font-size: 60px;
+    width: 40px;
+    height: 40px;
+    margin-left: 95%;
 }
 
 /* MAIN CART / PRODUCT CART */
@@ -794,15 +786,12 @@ header {
     }
 
     .close-search {
-        width: 10px;
-        height: 10px;
         margin-left: 80%;
-    }
-    .close-search i{
-        font-size: 20px;
+        width: 20px;
+        height: 20px;
     }
 
-    /* FORMULARIO */
+    /* FORMULARIO DE CONTACTO */
     .form-header {
         width: 95%;
     }
@@ -813,10 +802,50 @@ header {
 
     .close-form {
         margin-left: 85%;
+        width: 20px;
+        height: 20px;
     }
 
     .formulario {
         width: 95%;
+    }
+
+    .formulario input {
+        width: 60%;
+    }
+
+    .formulario textarea {
+        width: 80%;
+    }
+
+    .button-form button {
+        width: 30%;
+    }
+
+    /* CONTENEDOR CARRITO */
+    .carrito-header {
+        width: 95%;
+    }
+
+    .carrito-header button {
+        margin-left: 85%;
+        width: 20px;
+        height: 20px;
+    }
+
+    .carrito-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-card {
+        width: 100%;
+        height: 20%;
+    }
+
+    .main-form {
+        width: 100%;
+        height: 50%;
     }
 
     /* CONTENEDOR DE MIS PRODUCTOS */
@@ -829,9 +858,13 @@ header {
     .tarjeta {
         width: 85%;
     }
-
-
 }
+
+
+
+
+
+
 
 /* MEDIA QUERY PARA TABLET */
 @media (min-width: 577px) and (max-width: 991px) {
