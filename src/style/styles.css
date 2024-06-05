@@ -836,16 +836,39 @@ header {
     .carrito-main {
         display: flex;
         flex-direction: column;
+        height: 80%;
+        border: solid 1px red;
     }
 
     .main-card {
         width: 100%;
-        height: 20%;
+        height: 50%;
+    }
+
+    .card-carrito {
+        position: relative;
+        width: 100%;
+    }
+
+    .card-button {
+        flex-direction: column;
+    }
+
+    .delete-prod {
+        position: absolute;
+        margin-left: 85%;
+        margin-bottom: 30%;
     }
 
     .main-form {
         width: 100%;
         height: 50%;
+    }
+
+
+    /* CARRITO FOOTER */
+    .carrito-footer {
+        width: 95%;
     }
 
     /* CONTENEDOR DE MIS PRODUCTOS */
