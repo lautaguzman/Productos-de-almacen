@@ -43,13 +43,17 @@ const miCarrito = () => {
         </div>`;
             mainCard.append(cardCarrito);
 
-            // CONTENEDOR DE BOTONERA PARA MANEJAR CANTIDADES
+            const buttonContainer = document.createElement("div")
+            buttonContainer.className = "button-container"
+            cardCarrito.append(buttonContainer)
+
+            // BOTONERA PARA MANEJAR CANTIDADES
             let cardButton = document.createElement("div");
             cardButton.className = "card-button";
-            cardCarrito.append(cardButton);
+            buttonContainer.append(cardButton);
 
             let resta = document.createElement("button");
-            resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus" style="color: #00635c;"></i>`;
+            resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
             resta.addEventListener("click", () => {
                 if (productos.cantidad !== 1) {
                     productos.cantidad--;
@@ -64,7 +68,7 @@ const miCarrito = () => {
             cardButton.append(cardCantidad);
 
             let suma = document.createElement("button");
-            suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus" style="color: #00635c;"></i>`;
+            suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus"></i>`;
             suma.addEventListener("click", () => {
                 if (productos.cantidad < 10) {
                     productos.cantidad++;
@@ -83,18 +87,18 @@ const miCarrito = () => {
             });
             cardButton.append(suma);
 
+            // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
+            let btnEliminar = document.createElement("span");
+            btnEliminar.innerHTML = `<p>eliminar</p>
+             <i class="fa-solid fa-trash" style="color: #ffffff;"></i>`
+            btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
+            buttonContainer.append(btnEliminar);
+
             // PRECIO X CANTIDAD DE PRODUCTO
             let precioProducto = document.createElement("span");
             precioProducto.className = "card-precio";
             precioProducto.innerText = `$${productos.precio * productos.cantidad}`;
             cardCarrito.append(precioProducto);
-
-            // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
-            let btnEliminar = document.createElement("i");
-            btnEliminar.className = "delete-prod fa-solid fa-delete-left fa-2xl";
-            btnEliminar.style = "color: #ff0000";
-            btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
-            cardCarrito.append(btnEliminar);
         });
 
         const carritoFooter = document.querySelector("#carritoFooter");

@@ -72,7 +72,6 @@ function mostrarProductos() {
           mostrarCantidadEnCarrito();
           localSave();
         });
-
       });
     })
     .catch(error => {
@@ -84,3 +83,4 @@ function mostrarProductos() {
 
 // Llamamos a la función para mostrar los productos.
 mostrarProductos()
+
