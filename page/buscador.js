@@ -36,7 +36,7 @@ function closeBuscador() {
 // Crear un elemento para mostrar un mensaje cuando no hay resultados de búsqueda
 const noHayResultados = document.createElement("p");
 noHayResultados.className = "mensaje-busqueda";
-noHayResultados.innerText = "No hay resultados para tu búsqueda";
+noHayResultados.innerText = "No hay coincidencias";
 content.append(noHayResultados);
 
 // Función para buscar productos

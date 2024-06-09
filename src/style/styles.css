@@ -337,7 +337,7 @@ header {
     margin-left: 95%;
 }
 
-/* MAIN CART / PRODUCT CART */
+/* MENU CARRITO*/
 .carrito-main {
     display: flex;
     justify-content: space-evenly;
@@ -353,8 +353,8 @@ header {
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    /* border-radius: 10px; */
-    /* overflow: auto; */
+    border-radius: 10px;
+    overflow: auto;
     width: 45%;
     height: 100%;
 }
@@ -406,24 +406,22 @@ header {
     width: 100%;
 } */
 
-
-
-.button-container {
+/* .button-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 25%;
     height: 100%;
-}
+} */
 
-.card-button {
+/* .card-button {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 30%;
-}
+} */
 
 .card-button button {
     cursor: pointer;
@@ -431,7 +429,7 @@ header {
     border: none;
     background-color: rgb(0, 99, 92);
     color: white;
-    height: 100%;
+    height: 90%;
     width: 25%;
 }
 
@@ -452,6 +450,10 @@ header {
     transition: transform 0.1s ease-in-out;
     width: 70%;
     height: 30%;
+}
+
+.button-container span i {
+    display: none;
 }
 
 .button-container span:active {
@@ -495,6 +497,7 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    gap: 10px;
     width: 90%;
     height: 80%;
 }
@@ -827,6 +830,12 @@ header {
         height: 20px;
     }
 
+    /* MENSAJE BUSCADOR */
+    .mensaje-busqueda {
+        font-size: 1.2rem;
+        width: 90%;
+    }
+
     /* FORMULARIO DE CONTACTO */
     .form-header {
         width: 95%;
@@ -858,7 +867,7 @@ header {
         width: 30%;
     }
 
-    /* CONTENEDOR CARRITO */
+    /* HEADER CARRITO */
     .carrito-header {
         width: 95%;
     }
@@ -869,7 +878,7 @@ header {
         height: 20px;
     }
 
-    /* MAIN CART*/
+    /* MENU CARRITO*/
     .carrito-main {
         display: flex;
         flex-direction: column;
@@ -928,6 +937,7 @@ header {
     .card-list p {
         text-transform: uppercase;
         font-size: 0.7rem;
+        font-weight: 600;
         text-align: center;
         color: rgb(0, 99, 92);
         white-space: nowrap;
@@ -951,7 +961,7 @@ header {
         height: 30%;
     }
 
-    .button-container span {
+    .eliminar-producto {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -964,13 +974,14 @@ header {
         height: 25%;
     }
 
-    .button-container span:active {
+    .eliminar-producto p {
+        display: none;
+    }
+
+    .eliminar-producto :active {
         transform: scale(0.95);
     }
 
-    .button-container span p {
-        display: none;
-    }
 
     .card-precio {
         display: flex;
@@ -983,7 +994,6 @@ header {
         height: 90%;
     }
 
-
     /* FORMULARIO CARRITO */
     .main-form {
         width: 100%;
@@ -991,13 +1001,18 @@ header {
     }
 
     .form-cart input {
-        width: 70%;
+        width: 80%;
     }
 
     /* CARRITO FOOTER */
     .carrito-footer {
         width: 95%;
     }
+
+    .carrito-footer p {
+        font-size: 0.9rem;
+    }
+
 
     /* CONTENEDOR DE MIS PRODUCTOS */
     .productos-container {

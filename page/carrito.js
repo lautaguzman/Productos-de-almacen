@@ -88,9 +88,10 @@ const miCarrito = () => {
             cardButton.append(suma);
 
             // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
-            let btnEliminar = document.createElement("span");
+            let btnEliminar = document.createElement("div");
+            btnEliminar.className = "eliminar-producto"
             btnEliminar.innerHTML = `<p>eliminar</p>
-             <i class="fa-solid fa-trash" style="color: #ffffff;"></i>`
+             <i class="fa-solid fa-trash fa-xs" style="color: #ffffff;"></i>`
             btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
             buttonContainer.append(btnEliminar);
 
