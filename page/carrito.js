@@ -28,7 +28,7 @@ const miCarrito = () => {
 
         // MAIN CARRITO DONDE SE VEN LOS PRODUCTOS QUE AGREGAMOS
         const mainCard = document.querySelector("#mainCard");
-        mainCard.innerHTML = "";
+        mainCard.innerHTML = " ";
 
         // CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
         carrito.forEach((productos) => {
@@ -43,14 +43,11 @@ const miCarrito = () => {
         </div>`;
             mainCard.append(cardCarrito);
 
-            const buttonContainer = document.createElement("div")
-            buttonContainer.className = "button-container"
-            cardCarrito.append(buttonContainer)
 
             // BOTONERA PARA MANEJAR CANTIDADES
             let cardButton = document.createElement("div");
             cardButton.className = "card-button";
-            buttonContainer.append(cardButton);
+            cardCarrito.append(cardButton);
 
             let resta = document.createElement("button");
             resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
@@ -87,19 +84,21 @@ const miCarrito = () => {
             });
             cardButton.append(suma);
 
-            // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
-            let btnEliminar = document.createElement("div");
-            btnEliminar.className = "eliminar-producto"
-            btnEliminar.innerHTML = `<p>eliminar</p>
-             <i class="fa-solid fa-trash fa-xs" style="color: #ffffff;"></i>`
-            btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
-            buttonContainer.append(btnEliminar);
 
             // PRECIO X CANTIDAD DE PRODUCTO
             let precioProducto = document.createElement("span");
             precioProducto.className = "card-precio";
             precioProducto.innerText = `$${productos.precio * productos.cantidad}`;
             cardCarrito.append(precioProducto);
+
+
+            // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
+            let btnEliminar = document.createElement("div");
+            btnEliminar.className = "eliminar-producto"
+            btnEliminar.innerHTML = `<p>eliminar</p>
+            <i class="fa-solid fa-trash fa-xs" style="color: #ffffff;"></i>`
+            btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
+            cardCarrito.append(btnEliminar);
         });
 
         const carritoFooter = document.querySelector("#carritoFooter");
@@ -120,6 +119,8 @@ const miCarrito = () => {
 
     buttonFooter.addEventListener("click", realizarPedido);
 };
+
+
 
 verCarrito.addEventListener("click", function () {
     miCarrito();
