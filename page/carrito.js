@@ -44,7 +44,7 @@ const miCarrito = () => {
         </div>`;
       mainCard.append(cardCarrito);
 
-      // BOTONERA PARA MANEJAR CANTIDADES
+      // CONTENEDOR BOTONERA PARA MANEJAR CANTIDADES
       let cardButton = document.createElement("div");
       cardButton.className = "card-button";
       cardCarrito.append(cardButton);
@@ -91,10 +91,9 @@ const miCarrito = () => {
       cardCarrito.append(precioProducto);
 
       // BOTON PARA ELIMINAR PRODUCTO DEL CARRITO
-      let btnEliminar = document.createElement("div");
+      let btnEliminar = document.createElement("button");
       btnEliminar.className = "eliminar-producto";
-      btnEliminar.innerHTML = `<p>eliminar</p>
-            <i class="fa-solid fa-trash fa-xs" style="color: #ffffff;"></i>`;
+      btnEliminar.innerHTML = `<i class="fa-solid fa-trash fa-xs" style="color: #ffffff;"></i>`;
       btnEliminar.addEventListener("click", () => quitarProducto(productos.id));
       cardCarrito.append(btnEliminar);
     });
@@ -109,13 +108,13 @@ const miCarrito = () => {
     const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
     const totalFormateado = total.toLocaleString();
     totalCompra.innerHTML = `total $${totalFormateado}`;
-  }
-  // FINALIZAR PEDIDO
-  const buttonFooter = document.createElement("button");
-  buttonFooter.innerText = `realizar pedido`;
-  carritoFooter.append(buttonFooter);
 
-  buttonFooter.addEventListener("click", realizarPedido);
+    // FINALIZAR PEDIDO
+    const buttonFooter = document.createElement("button");
+    buttonFooter.innerText = `realizar pedido`;
+    carritoFooter.append(buttonFooter);
+    buttonFooter.addEventListener("click", realizarPedido);
+  }
 };
 
 verCarrito.addEventListener("click", function () {
