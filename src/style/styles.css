@@ -22,7 +22,7 @@ header {
   align-items: center;
   background-color: rgb(0, 99, 92);
   width: 100%;
-  height: 150px;
+  height: 140px;
 }
 
 /* NAV */
@@ -336,7 +336,6 @@ header {
 /* MENU CARRITO*/
 .carrito-main {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -672,7 +671,7 @@ header {
   align-items: center;
   background-color: rgb(0, 99, 92);
   width: 100%;
-  height: 200px;
+  height: 160px;
 }
 
 .footer-contacto {
@@ -823,29 +822,55 @@ header {
     width: 95%;
   }
 
+  /* MENU CARRITO*/
+  .carrito-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   /* CONTENEDOR CARD CARRITO */
   .main-card {
     width: 100%;
-    /* height: 50%; */
+    height: 50%;
   }
   /* TARJETA CARRITO */
+  .card-carrito {
+    min-height: 100px;
+  }
   .card-carrito img {
-    border: solid 2px red;
+    width: 20%;
+    height: 80%;
   }
   .card-list {
-    border: solid 2px yellow;
+    width: 25%;
+  }
+  .card-list h5 {
+    font-size: 0.6rem;
+    white-space: nowrap;
+  }
+  .card-list p {
+    font-size: 0.6rem;
   }
   .card-button {
-
-    height: 95%;
+    width: 25%;
   }
-
+  .card-button button {
+    border-radius: 25px;
+    width: 25px;
+    height: 25px;
+  }
   .card-precio {
     width: 20%;
   }
+
+  .eliminar-producto {
+    margin: 5px;
+    border-radius: 3px;
+  }
+
   /* FORMULARIO CARRITO */
   .main-form {
-    display: none;
     width: 100%;
     height: 50%;
   }

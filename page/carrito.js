@@ -29,7 +29,7 @@ const miCarrito = () => {
     // MAIN CARRITO DONDE SE VEN LOS PRODUCTOS QUE AGREGAMOS
     const mainCard = document.querySelector("#mainCard");
 
-    mainCard.innerHTML = " ";
+    mainCard.innerHTML = "";
 
     // CARD DE CARRITO DONDE SE VEN TODOS LOS PRODUCTOS QUE LE AÑADIMOS
     carrito.forEach((productos) => {
@@ -50,7 +50,7 @@ const miCarrito = () => {
       cardCarrito.append(cardButton);
 
       let resta = document.createElement("button");
-      resta.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
+      resta.innerHTML = `<i class="fa-solid fa-minus fa-xs" style="color: #ffffff;"></i>`;
       resta.addEventListener("click", () => {
         if (productos.cantidad !== 1) {
           productos.cantidad--;
@@ -65,7 +65,7 @@ const miCarrito = () => {
       cardButton.append(cardCantidad);
 
       let suma = document.createElement("button");
-      suma.innerHTML = `<i class="fa-sharp fa-solid fa-plus"></i>`;
+      suma.innerHTML = `<i class="fa-solid fa-plus fa-xs" style="color: #ffffff;"></i>`;
       suma.addEventListener("click", () => {
         if (productos.cantidad < 10) {
           productos.cantidad++;
