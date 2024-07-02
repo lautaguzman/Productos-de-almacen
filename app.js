@@ -12,12 +12,11 @@ function mostrarProductos() {
   productosContainer.innerHTML = "";
 
   // Realizamos una petición para obtener los datos del archivo JSON
-  fetch('./data.json')
-    .then(response => response.json())
-    .then(data => {
+  fetch("./data.json")
+    .then((response) => response.json())
+    .then((data) => {
       // Iteramos sobre los datos para crear una tarjeta por cada producto
       data.forEach((producto) => {
-
         // Creamos un elemento de tipo 'div' para representar la tarjeta del producto
         let card = document.createElement("div");
         card.className = "tarjeta";
@@ -41,31 +40,42 @@ function mostrarProductos() {
         añadirCarrito.addEventListener("click", () => {
           // Mostramos una notificación de éxito utilizando la librería SweetAlert
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '¡Producto Agregado!',
+            position: "center",
+            icon: "success",
+            title: "¡Producto Agregado!",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
           });
 
           // Verificamos si el producto ya está en el carrito
-          const repeatProduct = carrito.some((repeat) => repeat.id === producto.id);
+          const repeatProduct = carrito.some(
+            (repeat) => repeat.id === producto.id
+          );
 
           // Si el producto ya está en el carrito, no aumentamos su cantidad
           if (repeatProduct) {
-            carrito.forEach(prod => {
+            carrito.forEach((prod) => {
               if (prod.id === producto.id) {
                 Swal.fire({
-                  position: 'center',
-                  icon: 'error',
-                  title: '¡Tu producto ya se encuentra en el carrito!',
+                  position: "center",
+                  icon: "error",
+                  title: "¡Tu producto ya se encuentra en el carrito!",
                   showConfirmButton: false,
-                  timer: 1500
+                  timer: 1500,
                 });
               }
             });
-          } else { // Si el producto no está en el carrito, lo agregamos al carrito
-            carrito.push({ id: producto.id, nombre: producto.nombre, marca: producto.marca, medida: producto.medida, img: producto.img, precio: producto.precio, cantidad: producto.cantidad });
+          } else {
+            // Si el producto no está en el carrito, lo agregamos al carrito
+            carrito.push({
+              id: producto.id,
+              nombre: producto.nombre,
+              marca: producto.marca,
+              medida: producto.medida,
+              img: producto.img,
+              precio: producto.precio,
+              cantidad: producto.cantidad,
+            });
           }
 
           // Actualizamos la cantidad de productos en el carrito y guardamos en el almacenamiento local
@@ -74,13 +84,11 @@ function mostrarProductos() {
         });
       });
     })
-    .catch(error => {
+    .catch((error) => {
       // En caso de error en la obtención del archivo JSON, mostramos una alerta
-      alert('Error al obtener el archivo JSON', error);
+      alert("Error al obtener el archivo JSON", error);
     });
-
-};
+}
 
 // Llamamos a la función para mostrar los productos.
-mostrarProductos()
-
+mostrarProductos();
