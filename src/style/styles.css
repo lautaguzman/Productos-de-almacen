@@ -37,19 +37,30 @@ header {
 .nav-inicio {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   width: 10%;
-  height: 70%;
+  height: 100%;
 }
 
+.nav-inicio i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+}
 .nav-inicio h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   font-family: sans-serif;
   text-transform: uppercase;
+  height: 40%;
+  width: 100%;
 }
-
 .nav-items {
   display: flex;
   justify-content: space-around;
@@ -752,8 +763,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 90px;
+    width: 20%;
   }
 
   .nav-inicio h3 {
@@ -927,4 +937,72 @@ header {
 
 /* MEDIA QUERY PARA TABLET */
 @media (min-width: 577px) and (max-width: 991px) {
+  /* NAV */
+  .nav-inicio {
+    width: 20%;
+  }
+
+  /* BUSCADOR */
+  .search-container {
+    width: 90%;
+  }
+
+  /* MENSAJE BUSCADOR */
+  .mensaje-busqueda {
+    width: 90%;
+  }
+  /* FORMULARIO DE CONTACTO */
+  .form-header {
+    width: 95%;
+  }
+  .formulario {
+    width: 95%;
+  }
+
+  /* HEADER CARRITO */
+  .carrito-header {
+    width: 95%;
+  }
+  /* MENU CARRITO*/
+  .carrito-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* CONTENEDOR CARD CARRITO */
+  .main-card {
+    width: 100%;
+    height: 45%;
+  }
+  /* FORMULARIO CARRITO */
+  .main-form {
+    width: 100%;
+    height: 45%;
+  }
+
+  /* CARRITO FOOTER */
+  .carrito-footer {
+    width: 95%;
+  }
+
+  /* CATEGORIAS */
+  .categorias-container span {
+    font-size: 0.7rem;
+    width: 18%;
+  }
+
+  /* MAIN */
+  .content-main {
+    min-height: 600px;
+  }
+  /* CONTENEDOR DE MIS PRODUCTOS */
+  .productos-container {
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* PRODUCTOS */
+  .tarjeta {
+    width: 45%;
+  }
 }
