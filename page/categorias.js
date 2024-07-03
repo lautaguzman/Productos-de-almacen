@@ -1,3 +1,4 @@
+// CAPTURAMOS TODOS LOS ID DE CATEGORIA
 const todosItems = document.querySelector("#todosItems");
 const almacen = document.querySelector("#almacen");
 const carniceria = document.querySelector("#carniceria");

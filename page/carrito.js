@@ -3,6 +3,7 @@ const verCarrito = document.querySelector("#Vercarrito");
 
 // CONTENEDOR CARRITO
 const carritoContainer = document.querySelector("#carritoContainer");
+
 //BUTTON PARA CERRAR CARRITO
 const closeCarrito = document.querySelector("#closeCarrito");
 closeCarrito.addEventListener("click", () => {
@@ -10,6 +11,9 @@ closeCarrito.addEventListener("click", () => {
 });
 
 // ARRAY VACIO DE CARRITO
+// Intenta obtener el valor almacenado en localStorage con la clave "carrito"
+// Si existe, convierte la cadena JSON almacenada en un objeto de JavaScript y lo asigna a la variable 'carrito'
+// Si no existe o el resultado es null, asigna un array vacío a 'carrito'
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // FUNCION PARA RENDERIZAR CARRITO
@@ -98,6 +102,7 @@ const miCarrito = () => {
       cardCarrito.append(btnEliminar);
     });
 
+    // FOOTER CARRITO
     const carritoFooter = document.querySelector("#carritoFooter");
     carritoFooter.innerHTML = "";
 
@@ -152,6 +157,10 @@ function mostrarCantidadEnCarrito() {
 
 mostrarCantidadEnCarrito();
 
+// Define una función llamada localSave
+// Guarda el contenido de la variable 'carrito' en el almacenamiento local del navegador
+// La clave utilizada para almacenar el dato es "carrito"
+// JSON.stringify(carrito) convierte el objeto 'carrito' en una cadena JSON
 const localSave = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };

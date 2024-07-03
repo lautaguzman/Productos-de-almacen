@@ -1,7 +1,7 @@
 // Capturamos el elemento con el ID 'lupa' del documento
 const lupa = document.querySelector("#lupa");
 
-// Agregar un evento de clic al ícono de búsqueda para mostrar el contenedor de búsqueda
+// Agregamos un evento de click al ícono de búsqueda para mostrar el contenedor de búsqueda
 lupa.addEventListener("click", () => {
   searchContainer.style.display = "flex";
 });
@@ -15,7 +15,7 @@ const buscador = document.querySelector("#inputSearch");
 // Capturamos el botón para cerrar el buscador
 const closeSearch = document.querySelector("#closeSearch");
 
-// Agregar un evento de clic al botón de cerrar búsqueda para ocultar el contenedor de búsqueda y limpiar el campo de búsqueda
+// Agregamos un evento de click al botón de cerrar búsqueda para ocultar el contenedor de búsqueda y limpiar el campo de búsqueda
 closeSearch.addEventListener("click", closeBuscador);
 
 // Función para cerrar el buscador
@@ -44,11 +44,11 @@ const buscarProd = () => {
   // Capturamos y almacenamos el valor del input en esta constante y lo transformamos a minúscula
   const terminoBusqueda = buscador.value.toLowerCase();
 
-  // Realizar una solicitud para obtener los datos del archivo JSON
+  // Realizamos una solicitud para obtener los datos del archivo JSON
   fetch("./data.json")
     .then((response) => response.json())
     .then((data) => {
-      // Filtrar los productos basados en el término de búsqueda
+      // Filtramos los productos basados en el término de búsqueda
       const prodFiltrados = data.filter(
         (producto) =>
           producto.nombre.toLowerCase().startsWith(terminoBusqueda) ||
@@ -62,7 +62,7 @@ const buscarProd = () => {
       if (prodFiltrados.length === 0) {
         noHayResultados.style.display = "flex";
       } else {
-        // Crear una tarjeta de producto para cada producto filtrado
+        // Crea una tarjeta de producto para cada producto filtrado
         prodFiltrados.forEach((producto) => {
           let card = document.createElement("div");
           card.className = "tarjeta";
