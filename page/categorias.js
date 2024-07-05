@@ -36,12 +36,12 @@ function filtrarCategorias(categoria) {
         productosContainer.append(card);
 
         // Creamos un botón para añadir el producto al carrito
-        const añadirCarrito = document.createElement("button");
-        añadirCarrito.innerText = `Añadir al carrito`;
-        card.append(añadirCarrito);
+        const agregarCarrito = document.createElement("button");
+        agregarCarrito.innerText = `Añadir al carrito`;
+        card.append(agregarCarrito);
 
         // Agregamos un evento al botón para manejar la acción de añadir al carrito
-        añadirCarrito.addEventListener("click", () => {
+        agregarCarrito.addEventListener("click", () => {
           // Mostramos una notificación de éxito utilizando la librería SweetAlert
           Swal.fire({
             position: "center",
