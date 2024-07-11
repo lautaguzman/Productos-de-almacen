@@ -27,11 +27,11 @@ JavaScript: Funcionalidad y lógica de la aplicación.
 
 - ESTRUCTURA
 
-`index.html`: Página principal de la tienda.
-`app.js`: Archivo principal de JavaScript para la lógica de la aplicación.
-`data.json`: Datos de los productos.
-`src/`: Contiene los recursos y scripts adicionales.
-`.vscode/`: Configuración del entorno de desarrollo.
+- index.html: Página principal de la tienda.
+- app.js: Archivo principal de JavaScript para la lógica de la aplicación.
+- data.json: Datos de los productos.
+- src/: Contiene los recursos y scripts adicionales.
+- .vscode/: Configuración del entorno de desarrollo.
 
 - Este repositorio se ha almacenado y gestionado utilizando las siguientes herramientas
 
