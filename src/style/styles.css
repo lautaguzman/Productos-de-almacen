@@ -15,6 +15,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* HEADER */
 header {
   display: flex;
   flex-direction: column;
@@ -33,7 +34,6 @@ header {
   width: 100%;
   height: 100%;
 }
-
 .nav-inicio {
   display: flex;
   flex-direction: column;
@@ -43,7 +43,6 @@ header {
   width: 10%;
   height: 100%;
 }
-
 .nav-inicio i {
   display: flex;
   justify-content: center;
@@ -69,7 +68,6 @@ header {
   width: 50%;
   height: 100%;
 }
-
 .nav-lupa {
   display: flex;
   justify-content: center;
@@ -79,7 +77,6 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .nav-contacto {
   display: flex;
   justify-content: center;
@@ -89,7 +86,6 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .nav-carrito {
   display: flex;
   justify-content: center;
@@ -100,7 +96,6 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .cantidad-carrito {
   display: none;
   justify-content: center;
@@ -128,7 +123,6 @@ header {
   width: 50%;
   height: 50px;
 }
-
 .search-container input {
   text-align: center;
   border-radius: 10px;
@@ -136,17 +130,14 @@ header {
   width: 85%;
   height: 40px;
 }
-
 .search-container input::placeholder {
   font-weight: 600;
   text-transform: uppercase;
   color: rgba(0, 99, 92);
 }
-
 .search-container input:focus {
   outline: none;
 }
-
 .close-search {
   display: flex;
   justify-content: center;
@@ -188,7 +179,6 @@ header {
   height: 100%;
   z-index: 10;
 }
-
 .form-header {
   display: flex;
   justify-content: center;
@@ -200,14 +190,12 @@ header {
   width: 50%;
   height: 10%;
 }
-
 .form-header h4 {
   font-size: 1.5rem;
   font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
   color: white;
 }
-
 .close-form {
   display: flex;
   justify-content: center;
@@ -220,7 +208,6 @@ header {
   width: 20px;
   height: 20px;
 }
-
 .formulario {
   display: flex;
   flex-direction: column;
@@ -232,7 +219,6 @@ header {
   width: 50%;
   height: 85%;
 }
-
 .formulario input {
   background-color: white;
   color: rgb(0, 99, 92);
@@ -244,18 +230,15 @@ header {
   width: 50%;
   height: 40px;
 }
-
 .formulario input:focus {
   outline: none;
 }
-
 .formulario input::placeholder {
   color: rgb(0, 99, 92);
   font-family: inherit;
   font-weight: bold;
   text-transform: uppercase;
 }
-
 .formulario textarea {
   background-color: white;
   resize: none;
@@ -264,11 +247,9 @@ header {
   width: 70%;
   height: 120px;
 }
-
 .formulario textarea:focus {
   outline: none;
 }
-
 .button-form {
   display: flex;
   justify-content: space-around;
@@ -276,7 +257,6 @@ header {
   width: 100%;
   height: 50px;
 }
-
 .button-form button {
   background-color: white;
   color: rgb(0, 99, 92);
@@ -287,13 +267,11 @@ header {
   width: 25%;
   height: 40px;
 }
-
 .button-form button:hover {
   background-color: transparent;
   color: white;
   border: solid 1px white;
 }
-
 .button-form button:active {
   transform: translateY(4px);
 }
@@ -323,14 +301,12 @@ header {
   width: 50%;
   height: 10%;
 }
-
 .carrito-header p {
   font-size: 1.5rem;
   font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
   color: white;
 }
-
 .carrito-header button {
   display: flex;
   justify-content: center;
@@ -365,7 +341,6 @@ header {
   width: 45%;
   height: 100%;
 }
-
 .main-card::-webkit-scrollbar {
   display: none;
 }
@@ -381,13 +356,11 @@ header {
   width: 95%;
   height: 100px;
 }
-
 .card-carrito img {
   border-radius: 10%;
   height: 90%;
   width: 15%;
 }
-
 .card-list {
   display: flex;
   flex-direction: column;
@@ -397,14 +370,12 @@ header {
   width: 25%;
   height: 100%;
 }
-
 .card-list h5 {
   color: black;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
 }
-
 .card-list p {
   text-transform: uppercase;
   text-align: center;
@@ -412,7 +383,6 @@ header {
   white-space: nowrap;
   width: 100%;
 }
-
 .card-button {
   display: flex;
   justify-content: space-around;
@@ -420,7 +390,6 @@ header {
   width: 25%;
   height: 40%;
 }
-
 .card-button button {
   cursor: pointer;
   border-radius: 10px;
@@ -430,7 +399,6 @@ header {
   height: 90%;
   width: 25%;
 }
-
 .card-precio {
   display: flex;
   justify-content: center;
@@ -441,7 +409,6 @@ header {
   width: 10%;
   height: 60%;
 }
-
 .eliminar-producto {
   background-color: red;
   cursor: pointer;
@@ -460,7 +427,6 @@ header {
   width: 45%;
   height: 100%;
 }
-
 .main-form h5 {
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -470,7 +436,6 @@ header {
   width: 100%;
   height: 10%;
 }
-
 .form-cart {
   display: flex;
   flex-direction: column;
@@ -480,7 +445,6 @@ header {
   width: 90%;
   height: 80%;
 }
-
 .form-cart input {
   text-align: center;
   border-radius: 5px;
@@ -488,11 +452,9 @@ header {
   width: 50%;
   height: 50px;
 }
-
 .form-cart input:focus {
   outline: none;
 }
-
 .form-cart input::placeholder {
   color: rgb(0, 99, 92);
   text-transform: uppercase;
@@ -510,7 +472,6 @@ header {
   width: 50%;
   height: 10%;
 }
-
 .carrito-footer p {
   display: flex;
   justify-content: center;
@@ -525,7 +486,6 @@ header {
   width: 45%;
   height: 90%;
 }
-
 .carrito-footer button {
   background-color: rgb(0, 99, 92);
   color: white;
@@ -547,7 +507,6 @@ header {
   width: 90%;
   height: 50px;
 }
-
 .categorias-container span {
   display: flex;
   justify-content: center;
@@ -562,7 +521,6 @@ header {
   width: 10%;
   height: 70%;
 }
-
 .categorias-container span:hover {
   background-color: rgb(0, 99, 92);
   border: solid 2px white;
@@ -608,12 +566,10 @@ header {
   width: 20%;
   height: 320px;
 }
-
 .tarjeta img {
   width: 140px;
   height: 140px;
 }
-
 .tarjeta h2 {
   display: flex;
   justify-content: center;
@@ -625,7 +581,6 @@ header {
   width: 100%;
   height: 50px;
 }
-
 .tarjeta p {
   display: flex;
   justify-content: center;
@@ -635,7 +590,6 @@ header {
   width: 100%;
   height: 40px;
 }
-
 .tarjeta span {
   display: flex;
   justify-content: center;
@@ -650,7 +604,6 @@ header {
   width: 50px;
   height: 50px;
 }
-
 .tarjeta button {
   background-color: rgb(0, 99, 92);
   color: white;
@@ -663,7 +616,6 @@ header {
   width: 70%;
   height: 40px;
 }
-
 .tarjeta button:hover {
   border: solid 2px rgb(0, 99, 92);
   background: white;
@@ -679,7 +631,6 @@ header {
   width: 100%;
   height: 150px;
 }
-
 .footer-contacto {
   display: flex;
   flex-direction: column;
@@ -688,7 +639,6 @@ header {
   width: 20%;
   height: 150px;
 }
-
 .footer-contacto h2 {
   display: flex;
   justify-content: center;
@@ -698,7 +648,6 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
-
 .footer-contacto button {
   display: flex;
   justify-content: center;
@@ -707,7 +656,6 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .redes-container {
   display: flex;
   flex-direction: column;
@@ -716,7 +664,6 @@ header {
   width: 50%;
   height: 150px;
 }
-
 .redes-container h3 {
   display: flex;
   justify-content: center;
@@ -726,7 +673,6 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
-
 .footer-redes {
   display: flex;
   justify-content: space-evenly;
@@ -734,7 +680,6 @@ header {
   list-style-type: none;
   width: 100%;
 }
-
 .footer-redes li {
   display: flex;
   justify-content: center;
@@ -743,15 +688,12 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .redes-linkedin {
   background-color: #0077b5;
 }
-
 .redes-insta {
   background: linear-gradient(90deg, #8a3ab9, #e95950);
 }
-
 .redes-gh {
   background-color: #333333;
 }
@@ -765,19 +707,15 @@ header {
     align-items: center;
     width: 20%;
   }
-
   .nav-inicio h3 {
     display: none;
   }
-
   .nav-lupa {
     border-radius: 20px;
   }
-
   .nav-contacto {
     border-radius: 20px;
   }
-
   .nav-carrito {
     border-radius: 20px;
   }
@@ -786,7 +724,6 @@ header {
   .search-container {
     width: 90%;
   }
-
   .search-container input {
     width: 90%;
   }
@@ -801,23 +738,18 @@ header {
   .form-header {
     width: 95%;
   }
-
   .form-header h4 {
     font-size: 1rem;
   }
-
   .formulario {
     width: 95%;
   }
-
   .formulario input {
     width: 80%;
   }
-
   .formulario textarea {
     width: 90%;
   }
-
   .button-form button {
     width: 40%;
   }
@@ -839,6 +771,7 @@ header {
     width: 100%;
     height: 50%;
   }
+
   /* TARJETA CARRITO */
   .card-carrito {
     min-height: 100px;
@@ -868,7 +801,6 @@ header {
   .card-precio {
     width: 20%;
   }
-
   .eliminar-producto {
     margin: 5px;
     border-radius: 3px;
@@ -879,7 +811,6 @@ header {
     width: 100%;
     height: 50%;
   }
-
   .form-cart input {
     width: 80%;
   }
@@ -888,7 +819,6 @@ header {
   .carrito-footer {
     width: 95%;
   }
-
   .carrito-footer p {
     font-size: 0.9rem;
   }
@@ -902,7 +832,6 @@ header {
     height: 100px;
     overflow: auto;
   }
-
   .categorias-container span {
     width: 80%;
     height: 30px;
@@ -914,6 +843,7 @@ header {
     flex-direction: column;
     align-items: center;
   }
+
   /* PRODUCTOS */
   .tarjeta {
     width: 85%;
@@ -963,17 +893,20 @@ header {
   .carrito-header {
     width: 95%;
   }
+
   /* MENU CARRITO*/
   .carrito-main {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   /* CONTENEDOR CARD CARRITO */
   .main-card {
     width: 100%;
     height: 45%;
   }
+
   /* FORMULARIO CARRITO */
   .main-form {
     width: 100%;
